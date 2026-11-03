@@ -101,9 +101,9 @@ div.csl-indent {
 <style>html{ scroll-behavior: smooth; }</style>
 
 
-<link rel="stylesheet" href="../../styles/tokens.css?v=20261103163312">
-<link rel="stylesheet" href="../../styles/components.css?v=20261103163312">
-<link rel="stylesheet" href="../../styles/site.css?v=20261103163312">
+<link rel="stylesheet" href="../../styles/tokens.css?v=20261103164204">
+<link rel="stylesheet" href="../../styles/components.css?v=20261103164204">
+<link rel="stylesheet" href="../../styles/site.css?v=20261103164204">
 <meta property="og:title" content="The Map Room: Answering Geographic Questions by Hand – The Shape-Files">
 <meta property="og:description" content="How foresters, planners and land inventories answered map questions by hand, with light tables, planimeters and dot grids, and why that way of working couldn’t keep up.">
 <meta property="og:image" content="https://jacob-hogue.github.io/the-shape-files/articles/the-map-room/figures/share.png">
@@ -219,7 +219,7 @@ div.csl-indent {
 
 
 <div class="sf-article-path">
-<nav class="sf-prereq" aria-label="Reading path">
+<nav class="sf-prereq sf-prereq-single" aria-label="Reading path">
 <div class="sf-prereq-col">
 <p class="sf-prereq-head">
 Read first
@@ -227,19 +227,6 @@ Read first
 <p class="sf-prereq-none">
 Start here: no prerequisites
 </p>
-</div>
-<div class="sf-prereq-col">
-<p class="sf-prereq-head">
-Leads to
-</p>
-<ul class="sf-prereq-list">
-<li>
-<span class="sf-prereq-id">002</span><span>How Humans Learned to Measure the Earth</span>
-</li>
-<li>
-<span class="sf-prereq-id">016</span><span>The Canada Land Inventory’s Problem</span>
-</li>
-</ul>
 </div>
 </nav>
 </div>
@@ -263,7 +250,7 @@ Leads to
 <p>Tracing needed a steady hand and counting needed patience. Some of the work could be saved for next time: the lined-up sheets, and the traced outline of the good land. The outlines of the overlap and the tally could not. They answered one question, and a different question meant new outlines and a new count. Taking over those outlines and tallies is what the first computer systems for maps set out to do.</p>
 <section id="every-map-started-as-a-sheet-that-moved" class="level2">
 <h2 class="anchored" data-anchor-id="every-map-started-as-a-sheet-that-moved">Every map started as a sheet that moved</h2>
-<p>Every one of those outlines started on a printed sheet. Map sheets came cut to national grids, each at a fixed scale, the ratio of a distance on the map to the same distance on the ground (File 005, <em>Scale, Accuracy and the Limits of a Map</em>, covers scale in depth). Canada’s standard topographic sheet is drawn at 1:50,000, where 1 cm on the map is 500 m on the ground<span class="citation" data-cites="nrcan_topobasics"><sup><a href="#ref-nrcan_topobasics" role="doc-biblioref">7</a></sup></span>. It takes 13,150 of them to cover the country<span class="citation" data-cites="lac_canadaatscale"><sup><a href="#ref-lac_canadaatscale" role="doc-biblioref">8</a></sup></span>. From about 1950, the standard American sheet was the 7.5-minute quadrangle, bounded by lines of latitude and longitude 7.5 minutes apart, at 1:24,000, where an inch on the map is 2,000 feet<span class="citation" data-cites="thompson1979"><sup><a href="#ref-thompson1979" role="doc-biblioref">9</a></sup></span>.</p>
+<p>Every one of those outlines started on a printed sheet. Map sheets came cut to national grids, each at a fixed scale, the ratio of a distance on the map to the same distance on the ground. Canada’s standard topographic sheet is drawn at 1:50,000, where 1 cm on the map is 500 m on the ground<span class="citation" data-cites="nrcan_topobasics"><sup><a href="#ref-nrcan_topobasics" role="doc-biblioref">7</a></sup></span>. It takes 13,150 of them to cover the country<span class="citation" data-cites="lac_canadaatscale"><sup><a href="#ref-lac_canadaatscale" role="doc-biblioref">8</a></sup></span>. From about 1950, the standard American sheet was the 7.5-minute quadrangle, bounded by lines of latitude and longitude 7.5 minutes apart, at 1:24,000, where an inch on the map is 2,000 feet<span class="citation" data-cites="thompson1979"><sup><a href="#ref-thompson1979" role="doc-biblioref">9</a></sup></span>.</p>
 <p>Sheets were also paper, and paper moves. Damp air swells it and dry air shrinks it. The US Geological Survey (USGS) planned around that. Its 1928 instructions had field surveyors draw on two layers of paper mounted on either side of a cloth, with the grains crossed, and fix the sheet to the plane table, a drawing board on a tripod, “by brass thumbscrews or tacks, to reduce to a minimum the expansion or contraction caused by changes in climatic conditions”<span class="citation" data-cites="beaman1928"><sup><a href="#ref-beaman1928" role="doc-biblioref">10</a></sup></span>.</p>
 <p>Printers had the same trouble. Erwin Raisz, a cartographer at Harvard’s Institute of Geographical Exploration, explained in his 1948 textbook that each color of a map was drawn on its own sheet, “usually made on vellum because it does not change its shape and size with humidity,” and that “each drawing must have register marks for perfect overprint”<span class="citation" data-cites="raisz1948"><sup><a href="#ref-raisz1948" role="doc-biblioref">5</a></sup></span>. Getting two sheets to line up is called registration. Every overlay started with it.</p>
 </section>
@@ -280,7 +267,7 @@ Leads to
 </figcaption>
 </figure>
 <p>Some of the clearest descriptions of the hand method come from the people who replaced it. In 1967 Roger Tomlinson, data processing coordinator of the Canada Land Inventory, a national survey of what Canada’s land was used for and what it could support, described the computer system the inventory was building. He called overlay “the well-known function of putting one map over another and examining the resultant data relationships.” He also noted that, “as with the manual method of overlaying maps,” the maps had to be “at a common scale and frame size,” meaning the same scale and the same sheet edges<span class="citation" data-cites="tomlinson1967"><sup><a href="#ref-tomlinson1967" role="doc-biblioref">4</a></sup></span>.</p>
-<p>Getting there took real work. The inventory mapped land use on 1:50,000 sheets wherever they existed. Where they didn’t, its mappers worked on whatever base they could find, at scales from about 1:40,000 to 1:63,360, then rescaled it photographically to 1:50,000 and traced it onto blank sheets of drafting film “prepared to a master grid”<span class="citation" data-cites="mcclellan1968"><sup><a href="#ref-mcclellan1968" role="doc-biblioref">12</a></sup></span>. Every extra map meant another layer to see through and another set of copied lines that could drift. Planners who stacked many maps at once get their own file, File 022, <em>Overlay Planning: From Light Tables to Land Suitability</em>.</p>
+<p>Getting there took real work. The inventory mapped land use on 1:50,000 sheets wherever they existed. Where they didn’t, its mappers worked on whatever base they could find, at scales from about 1:40,000 to 1:63,360, then rescaled it photographically to 1:50,000 and traced it onto blank sheets of drafting film “prepared to a master grid”<span class="citation" data-cites="mcclellan1968"><sup><a href="#ref-mcclellan1968" role="doc-biblioref">12</a></sup></span>. Every extra map meant another layer to see through and another set of copied lines that could drift.</p>
 </section>
 <section id="every-patch-was-measured-by-hand" class="level2">
 <h2 class="anchored" data-anchor-id="every-patch-was-measured-by-hand">Every patch was measured by hand</h2>
@@ -294,7 +281,7 @@ Leads to
 <span class="sf-fig-credit">Photo: Central Intelligence Agency, 2016 · <a href="https://www.usa.gov/government-copyright">United States Government Work</a> · via the agency on <a href="https://www.flickr.com/photos/ciagov/30880918835/">Flickr</a> · resized</span>
 </figcaption>
 </figure>
-<p>The trick is in the wheel. It turns only when the tracing arm moves sideways, across its own length, and over a closed loop its total roll times the arm’s length equals the area inside<span class="citation" data-cites="foote_planimeter"><sup><a href="#ref-foote_planimeter" role="doc-biblioref">16</a></sup></span>. Mathematicians explain it with Green’s theorem, the same result that gives the shoelace formula a GIS uses today to compute a polygon’s area from its corners (File 010, <em>Points, Lines and Polygons</em>).</p>
+<p>The trick is in the wheel. It turns only when the tracing arm moves sideways, across its own length, and over a closed loop its total roll times the arm’s length equals the area inside<span class="citation" data-cites="foote_planimeter"><sup><a href="#ref-foote_planimeter" role="doc-biblioref">16</a></sup></span>. Mathematicians explain it with Green’s theorem, the same result that gives the shoelace formula a GIS uses today to compute a polygon’s area from its corners.</p>
 <p>In careful hands the instrument was very good on big shapes and worse on small ones. Tests reported in a 1903 manual put the average error at about 0.08% for a figure of 200 cm² and about 2.6% for one of 5 cm²<span class="citation" data-cites="wheatley1903"><sup><a href="#ref-wheatley1903" role="doc-biblioref">15</a></sup></span>. Users traced each patch at least twice and averaged the readings<span class="citation" data-cites="avery1957"><sup><a href="#ref-avery1957" role="doc-biblioref">6</a></sup></span>. Walter F. Wood, a geographer at the State University of Iowa who was making the case for dot grids, spelled out the catch in 1954. The reading “will be accurate if the operator has a very steady hand and traces the boundary with utmost care, and if the surface of the map is neither too smooth nor too rough”<span class="citation" data-cites="wood1954"><sup><a href="#ref-wood1954" role="doc-biblioref">17</a></sup></span>.</p>
 <p>The other way was to count. Lay a transparent sheet ruled into small squares over a patch and you turn area into a tally, but you have to judge every square the boundary cuts through. A grid of dots removes most of that judgment. Each dot stands for a fixed area at the map’s scale, and you count the dots inside the outline. In a 1939 test at the Forest Service’s Appalachian Forest Experiment Station, C. A. Abell checked both methods against planimetered areas. Dots were off by 1.84% on average and squares by 4.50%, and the dots took two-thirds of the time<span class="citation" data-cites="abell1939"><sup><a href="#ref-abell1939" role="doc-biblioref">18</a></sup></span>. Squares were still the most common alternative to the planimeter in 1954, when Wood warned that with them “the same area measured on successive days by the same operator may appear to have either grown or shrunk in the meantime”<span class="citation" data-cites="wood1954"><sup><a href="#ref-wood1954" role="doc-biblioref">17</a></sup></span>.</p>
 <p>The Forest Service printed its grids on transparent cards. One from its Pacific Northwest research station, <em>Timber Survey Aid No.&nbsp;6</em>, carries grids of 16 and 64 dots per square inch and a table of acres per dot at eight map scales (Fig. 4)<span class="citation" data-cites="usfs_areagrids"><sup><a href="#ref-usfs_areagrids" role="doc-biblioref">19</a></sup></span>. On a 1:20,000 air photo, a usual scale for the 64-dot grid, each dot stands for 0.996 acre, near enough to an acre a dot<span class="citation" data-cites="usfs_areagrids avery1957"><sup><a href="#ref-avery1957" role="doc-biblioref">6</a>,<a href="#ref-usfs_areagrids" role="doc-biblioref">19</a></sup></span>. In 1969 the cartographers Y. S. Frolov of Leningrad University and D. H. Maling of University College of Swansea showed that about 100 dots inside a parcel kept the relative error to about 1.5%<span class="citation" data-cites="frolov1969"><sup><a href="#ref-frolov1969" role="doc-biblioref">3</a></sup></span>.</p>
@@ -531,12 +518,12 @@ z
 </section>
 <section id="a-national-inventory-chose-a-computer-instead" class="level2">
 <h2 class="anchored" data-anchor-id="a-national-inventory-chose-a-computer-instead">A national inventory chose a computer instead</h2>
-<p>Now multiply that by a country. The Canada Land Inventory, approved by the federal government in October 1963, set out to map how land was used, and what it could support for agriculture, forestry, recreation, and wildlife, across roughly a million square miles<span class="citation" data-cites="cli_report1 tomlinson1967"><sup><a href="#ref-tomlinson1967" role="doc-biblioref">4</a>,<a href="#ref-cli_report1" role="doc-biblioref">21</a></sup></span>. It planned on a computer from the start, and Tomlinson’s report dates the start of the system’s design to 1963<span class="citation" data-cites="tomlinson1967"><sup><a href="#ref-tomlinson1967" role="doc-biblioref">4</a></sup></span>. The inventory’s program report later gave the reason in one sentence: “Conventional methods of map compilation, area measurement and comparison between maps and statistical tables, would have imposed severe restrictions on the inventory program”<span class="citation" data-cites="cli_report1"><sup><a href="#ref-cli_report1" role="doc-biblioref">21</a></sup></span>. File 016, <em>The Canada Land Inventory’s Problem</em>, tells that story. The computer still needed every map traced by hand, but only once. After that, the computer did the overlays and the measuring<span class="citation" data-cites="tomlinson1967"><sup><a href="#ref-tomlinson1967" role="doc-biblioref">4</a></sup></span>.</p>
+<p>Now multiply that by a country. The Canada Land Inventory, approved by the federal government in October 1963, set out to map how land was used, and what it could support for agriculture, forestry, recreation, and wildlife, across roughly a million square miles<span class="citation" data-cites="cli_report1 tomlinson1967"><sup><a href="#ref-tomlinson1967" role="doc-biblioref">4</a>,<a href="#ref-cli_report1" role="doc-biblioref">21</a></sup></span>. It planned on a computer from the start, and Tomlinson’s report dates the start of the system’s design to 1963<span class="citation" data-cites="tomlinson1967"><sup><a href="#ref-tomlinson1967" role="doc-biblioref">4</a></sup></span>. The inventory’s program report later gave the reason in one sentence: “Conventional methods of map compilation, area measurement and comparison between maps and statistical tables, would have imposed severe restrictions on the inventory program”<span class="citation" data-cites="cli_report1"><sup><a href="#ref-cli_report1" role="doc-biblioref">21</a></sup></span>. The computer still needed every map traced by hand, but only once. After that, the computer did the overlays and the measuring<span class="citation" data-cites="tomlinson1967"><sup><a href="#ref-tomlinson1967" role="doc-biblioref">4</a></sup></span>.</p>
 </section>
 <section id="where-it-shows-up-today" class="level2">
 <h2 class="anchored" data-anchor-id="where-it-shows-up-today">Where it shows up today</h2>
-<p>The computer took over the four jobs, and they’re still there under other names. Lining up two maps is now a matter of coordinate reference systems, the definitions that tie coordinates to places on the Earth, and of converting data between them (Files 003 and 004). In QGIS, a free desktop GIS, laying one map over another is one run of the Intersection tool, which “extracts the portions of features from the input layer that overlap features in the overlay layer”<span class="citation" data-cites="qgis_overlay"><sup><a href="#ref-qgis_overlay" role="doc-biblioref">22</a></sup></span>. Each piece’s area comes from its corners, by the same mathematics as the planimeter, and the county totals are one more summary. The big change is that the outlines are stored. The cropland question starts from the same two layers, not from paper.</p>
-<p>Even perfect sheets never fit together perfectly. The 1928 USGS instructions noted that, in theory, sheets each drawn on their own projection leave “small gores” between rows laid edge to edge, because each sheet is a flat drawing of a piece of a curved Earth<span class="citation" data-cites="beaman1928"><sup><a href="#ref-beaman1928" role="doc-biblioref">10</a></sup></span>. How anyone knew the shape of that Earth is where File 002, <em>How Humans Learned to Measure the Earth</em>, begins.</p>
+<p>The computer took over the four jobs, and they’re still there under other names. Lining up two maps is now a matter of coordinate reference systems, the definitions that tie coordinates to places on the Earth, and of converting data between them. In QGIS, a free desktop GIS, laying one map over another is one run of the Intersection tool, which “extracts the portions of features from the input layer that overlap features in the overlay layer”<span class="citation" data-cites="qgis_overlay"><sup><a href="#ref-qgis_overlay" role="doc-biblioref">22</a></sup></span>. Each piece’s area comes from its corners, by the same mathematics as the planimeter, and the county totals are one more summary. The big change is that the outlines are stored. The cropland question starts from the same two layers, not from paper.</p>
+<p>Even perfect sheets never fit together perfectly. The 1928 USGS instructions noted that, in theory, sheets each drawn on their own projection leave “small gores” between rows laid edge to edge, because each sheet is a flat drawing of a piece of a curved Earth<span class="citation" data-cites="beaman1928"><sup><a href="#ref-beaman1928" role="doc-biblioref">10</a></sup></span>. Drawing even one sheet depended on knowing how the Earth curves, and that took centuries of measuring.</p>
 </section>
 <section id="references" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
@@ -627,7 +614,7 @@ z
   var base = nav ? nav.getAttribute("src").replace(/site_libs\/quarto-nav\/quarto-nav\.js.*$/, "") : "";
   if (!document.querySelector(".sf-hero-mount")) return;
   ["react.production.min.js", "react-dom.production.min.js", "three.min.js", "shapefiles.bundle.js", "hero-mount.js"].reduce(function (p, f) {
-    return p.then(function () { return new Promise(function (done) { var e = document.createElement("script"); e.src = base + "assets/js/" + f + "?v=20261103163312"; e.onload = done; e.onerror = done; document.body.appendChild(e); }); });
+    return p.then(function () { return new Promise(function (done) { var e = document.createElement("script"); e.src = base + "assets/js/" + f + "?v=20261103164204"; e.onload = done; e.onerror = done; document.body.appendChild(e); }); });
   }, Promise.resolve());
 })();
 </script>
