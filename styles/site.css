@@ -12,7 +12,18 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--focus); outline
 .navbar .navbar-title, .navbar .nav-link, .navbar .navbar-brand { color: var(--ink) !important; }
 .navbar .navbar-title { font-weight: 800; font-stretch: 112%; letter-spacing: -0.01em; }
 .navbar .nav-link:hover { color: var(--magenta-ink) !important; }
-.navbar-logo { max-height: 28px; }
+.navbar-logo { max-height: 34px; height: 34px; width: auto; margin-right: 4px; }
+.navbar-brand { display: inline-flex; align-items: center; gap: 6px; padding-top: 0; padding-bottom: 0; }
+.navbar-brand-container { align-items: center; }
+.navbar .navbar-title { white-space: nowrap; }
+.sf-mark { height: 34px; width: 34px; flex: none; }
+.sf-mark .ink { stroke: var(--ink); }
+.sf-mark .slab { fill: var(--magenta); stroke: var(--magenta); }
+.sf-mark .fold { fill: var(--magenta-light); stroke: var(--magenta); }
+@media (max-width: 600px) { .navbar .navbar-title { font-size: 17px; } .sf-mark, .navbar-logo { height: 26px; width: 26px; } .navbar-brand { gap: 4px; } .navbar-brand-container { max-width: calc(100% - 96px); } }
+#quarto-search .aa-DetachedSearchButtonIcon, #quarto-search .aa-DetachedSearchButtonIcon svg, .navbar .aa-SubmitIcon { color: var(--ink-muted) !important; fill: currentColor; }
+.navbar-toggler { border: 0; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .navbar-toggler-icon { filter: invert(1) brightness(1.4); } }
 #quarto-announcement { background: var(--amber-soft) !important; color: var(--amber-ink) !important; border: 0; border-bottom: 1px solid var(--amber-ink); border-radius: 0; margin: 0; padding: 8px 16px; font-family: var(--font-mono); font-size: 13px; line-height: 20px; }
 #quarto-announcement .quarto-announcement-content { max-width: none; padding: 0; }
 #quarto-announcement p { max-width: none; margin: 0; }

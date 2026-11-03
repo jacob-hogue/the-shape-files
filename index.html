@@ -36,7 +36,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./assets/img/file-mark-light.svg" rel="icon" type="image/svg+xml">
+<link href="./assets/img/file-mark-favicon.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-listing/list.min.js"></script>
 <script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
@@ -133,9 +133,9 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles/tokens.css?v=20261103134235">
-<link rel="stylesheet" href="styles/components.css?v=20261103134235">
-<link rel="stylesheet" href="styles/site.css?v=20261103134235">
+<link rel="stylesheet" href="styles/tokens.css?v=20261103135148">
+<link rel="stylesheet" href="styles/components.css?v=20261103135148">
+<link rel="stylesheet" href="styles/site.css?v=20261103135148">
 </head>
 
 <body class="nav-fixed fullcontent quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
@@ -146,8 +146,8 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./assets/img/file-mark-light.svg" alt="The Shape-Files file mark" class="navbar-logo light-content">
-    <img src="./assets/img/file-mark-light.svg" alt="The Shape-Files file mark" class="navbar-logo dark-content">
+    <img src="./assets/img/file-mark-nav.svg" alt="The Shape-Files file mark" class="navbar-logo light-content">
+    <img src="./assets/img/file-mark-nav.svg" alt="The Shape-Files file mark" class="navbar-logo dark-content">
     </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">The Shape-Files</span>
@@ -225,13 +225,20 @@ window.Quarto = {
 
 </main> <!-- /main -->
 <script>
+/* Swap the navbar logo for an inline copy that follows the page's light or dark colors. */
+(function () {
+  var img = document.querySelector("img.navbar-logo"); if (!img) return;
+  img.outerHTML = '<svg class="navbar-logo sf-mark" viewBox="0 0 64 64" role="img" aria-label="The Shape-Files"><polyline class="ink" points="5,42 32,57.5 59,42" fill="none" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><polyline class="ink" points="5,32 32,47.5 59,32" fill="none" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><polygon class="slab" points="32,6.5 51.5,17.8 51.5,26.2 32,37.5 5,22" stroke-width="4" stroke-linejoin="round"/><polygon class="fold" points="51.5,17.8 44.2,22 51.5,26.2" stroke-width="2" stroke-linejoin="round"/></svg>';
+})();
+</script>
+<script>
 /* Load the design-system runtime relative to the site root, which differs on GitHub Pages project sites. */
 (function () {
   var nav = [].slice.call(document.scripts).filter(function (x) { return /site_libs\/quarto-nav\/quarto-nav\.js/.test(x.getAttribute("src") || ""); })[0];
   var base = nav ? nav.getAttribute("src").replace(/site_libs\/quarto-nav\/quarto-nav\.js.*$/, "") : "";
   if (!document.querySelector(".sf-hero-mount")) return;
   ["react.production.min.js", "react-dom.production.min.js", "three.min.js", "shapefiles.bundle.js", "hero-mount.js"].reduce(function (p, f) {
-    return p.then(function () { return new Promise(function (done) { var e = document.createElement("script"); e.src = base + "assets/js/" + f + "?v=20261103134235"; e.onload = done; e.onerror = done; document.body.appendChild(e); }); });
+    return p.then(function () { return new Promise(function (done) { var e = document.createElement("script"); e.src = base + "assets/js/" + f + "?v=20261103135148"; e.onload = done; e.onerror = done; document.body.appendChild(e); }); });
   }, Promise.resolve());
 })();
 </script>
