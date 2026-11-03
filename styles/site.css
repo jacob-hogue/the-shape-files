@@ -69,6 +69,8 @@ body > .sf-hero-bleed, #quarto-header ~ .sf-hero-bleed, .sf-hero-bleed:not(.sf-c
 .sf-cover-name { max-width: none; margin: 0; font-family: var(--font-display); font-size: clamp(48px, 7.5vw, 104px); line-height: 0.94; font-weight: 800; font-stretch: 108%; letter-spacing: -0.025em; color: var(--ink); border: 0; }
 .sf-cover-name span { white-space: nowrap; }
 .sf-cover-tag { margin: 16px 0 0 4px; font-family: var(--font-serif); font-size: 20px; line-height: 28px; color: var(--ink-muted); max-width: 440px; }
+.sf-welcome p { font-size: 21px; line-height: 33px; max-width: 34em; }
+.sf-welcome p + p { color: var(--ink-muted); font-size: 18px; line-height: 28px; }
 .sf-files { list-style: none; padding: 0; margin: 8px 0 0; border-top: 1px solid var(--line); }
 .sf-files li { max-width: none; border-bottom: 1px solid var(--line); }
 .sf-files-row { display: grid; grid-template-columns: 96px 1fr; column-gap: 24px; row-gap: 6px; padding: 22px 0; text-decoration: none; color: var(--ink); }

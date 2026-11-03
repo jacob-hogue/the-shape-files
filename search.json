@@ -81,7 +81,7 @@
     "href": "index.html",
     "title": "The Shape-Files",
     "section": "",
-    "text": "TheShape-Files\n  A technical history of GIS, told through the formats, algorithms and systems that built it.\nEach file starts with a real problem, shows how the technology answered it, and traces where that answer lives in the tools you use today. Files are numbered in reading order, from how the Earth was measured to cloud-native data, and each one also stands on its own."
+    "text": "TheShape-Files\n  A technical history of GIS, told through the formats, algorithms and systems that built it."
   },
   {
     "objectID": "index.html#files",

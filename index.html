@@ -133,9 +133,9 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles/tokens.css?v=20261103022443">
-<link rel="stylesheet" href="styles/components.css?v=20261103022443">
-<link rel="stylesheet" href="styles/site.css?v=20261103022443">
+<link rel="stylesheet" href="styles/tokens.css?v=20261103123535">
+<link rel="stylesheet" href="styles/components.css?v=20261103123535">
+<link rel="stylesheet" href="styles/site.css?v=20261103123535">
 </head>
 
 <body class="nav-fixed fullcontent quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
@@ -200,7 +200,10 @@ window.Quarto = {
 /* Lift the cover out of the page grid so it sits flush under the navbar, like the article banners. */
 (function () { var v = document.querySelector(".sf-cover"), c = document.getElementById("quarto-content"); if (v && c) { v.classList.remove("column-screen"); c.parentNode.insertBefore(v, c); } })();
 </script>
-<p>Each file starts with a real problem, shows how the technology answered it, and traces where that answer lives in the tools you use today. Files are numbered in reading order, from how the Earth was measured to cloud-native data, and each one also stands on its own.</p>
+<div class="sf-welcome">
+<p>Welcome to The Shape-Files. It’s a history of spatial computing, from the first attempts to measure the Earth all the way to today’s cloud platforms and agentic geospatial workflows, with a look at where each idea still shows up in the tools you use.</p>
+<p>Files are numbered in reading order, but each one stands on its own, so start at the beginning or anywhere that catches your eye.</p>
+</div>
 <section id="files" class="level2">
 <h2 class="anchored" data-anchor-id="files">Files</h2>
 <div id="listing-files-list" class="quarto-listing quarto-listing-container-custom">
@@ -228,7 +231,7 @@ window.Quarto = {
   var base = nav ? nav.getAttribute("src").replace(/site_libs\/quarto-nav\/quarto-nav\.js.*$/, "") : "";
   if (!document.querySelector(".sf-hero-mount")) return;
   ["react.production.min.js", "react-dom.production.min.js", "three.min.js", "shapefiles.bundle.js", "hero-mount.js"].reduce(function (p, f) {
-    return p.then(function () { return new Promise(function (done) { var e = document.createElement("script"); e.src = base + "assets/js/" + f + "?v=20261103022443"; e.onload = done; e.onerror = done; document.body.appendChild(e); }); });
+    return p.then(function () { return new Promise(function (done) { var e = document.createElement("script"); e.src = base + "assets/js/" + f + "?v=20261103123535"; e.onload = done; e.onerror = done; document.body.appendChild(e); }); });
   }, Promise.resolve());
 })();
 </script>
