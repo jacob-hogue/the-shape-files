@@ -78,9 +78,9 @@ ul.task-list li input[type="checkbox"] {
 <style>html{ scroll-behavior: smooth; }</style>
 
 
-<link rel="stylesheet" href="styles/tokens.css?v=20261103165416">
-<link rel="stylesheet" href="styles/components.css?v=20261103165416">
-<link rel="stylesheet" href="styles/site.css?v=20261103165416">
+<link rel="stylesheet" href="styles/tokens.css?v=20261103165747">
+<link rel="stylesheet" href="styles/components.css?v=20261103165747">
+<link rel="stylesheet" href="styles/site.css?v=20261103165747">
 <meta property="og:title" content="About The Shape-Files – The Shape-Files">
 <meta property="og:description" content="A technical history of GIS, told through the formats, algorithms and systems that built it.">
 <meta property="og:image" content="https://jacob-hogue.github.io/the-shape-files/assets/img/share-default.png">
@@ -122,13 +122,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link active" href="./about.html" aria-current="page"> 
 <span class="menu-text">About</span></a>
-  </li>  
-</ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item compact">
-    <a class="nav-link" href="./index.xml"> <i class="bi bi-rss" role="img" aria-label="RSS feed">
-</i> 
-<span class="menu-text"></span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -186,7 +179,7 @@ ul.task-list li input[type="checkbox"] {
   var base = nav ? nav.getAttribute("src").replace(/site_libs\/quarto-nav\/quarto-nav\.js.*$/, "") : "";
   if (!document.querySelector(".sf-hero-mount")) return;
   ["react.production.min.js", "react-dom.production.min.js", "three.min.js", "shapefiles.bundle.js", "hero-mount.js"].reduce(function (p, f) {
-    return p.then(function () { return new Promise(function (done) { var e = document.createElement("script"); e.src = base + "assets/js/" + f + "?v=20261103165416"; e.onload = done; e.onerror = done; document.body.appendChild(e); }); });
+    return p.then(function () { return new Promise(function (done) { var e = document.createElement("script"); e.src = base + "assets/js/" + f + "?v=20261103165747"; e.onload = done; e.onerror = done; document.body.appendChild(e); }); });
   }, Promise.resolve());
 })();
 </script>
