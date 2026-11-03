@@ -79,9 +79,9 @@ ul.task-list li input[type="checkbox"] {
 <meta name="robots" content="noindex, nofollow">
 
 
-<link rel="stylesheet" href="styles/tokens.css?v=20261103124039">
-<link rel="stylesheet" href="styles/components.css?v=20261103124039">
-<link rel="stylesheet" href="styles/site.css?v=20261103124039">
+<link rel="stylesheet" href="styles/tokens.css?v=20261103134235">
+<link rel="stylesheet" href="styles/components.css?v=20261103134235">
+<link rel="stylesheet" href="styles/site.css?v=20261103134235">
 </head>
 
 <body class="nav-fixed fullcontent quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
@@ -151,10 +151,12 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>The Shape-Files is a weekly, long-form technical history of geographic information systems. It follows the field from survey networks and thematic maps through the first computer systems of the 1960s, relational databases, desktop GIS and open-source libraries, to cloud-native formats and GeoAI.</p>
-<p>It has three rules. Explain how the thing works, down to the data structure. Show the evidence: every claim has a source, every result comes from code that was actually run, and corrections are published rather than quietly made. Treat old systems on their own terms, as answers to the constraints of their time.</p>
-<p>Figures follow one convention throughout: in each drawing, exactly one thing is magenta, and it’s the thing being explained.</p>
-<p>This site is a draft. Articles are published here for review before they go public.</p>
+<div class="sf-welcome">
+<p>The Shape-Files tells the story of how geography became something computers can store, search and reason about. It starts in the map rooms where people answered questions with tracing paper and a ruler, and follows the thread through the first computer systems of the 1960s, the databases and workstations that came after, desktop GIS and open-source software, all the way to cloud-native data and the AI agents that work with maps today.</p>
+</div>
+<p>A new file comes out every week. Each one takes a single idea, format, algorithm or system and shows where it came from and how it works, with diagrams and code you can run yourself. Read them in order as one long history, or jump to any topic that piques your interest.</p>
+<p>It’s written for anyone who works with maps or spatial data and wants to know why the tools behave the way they do: GIS analysts, developers, data engineers, students, and anyone who has ever wondered why a shapefile comes in pieces.</p>
+<p>The Shape-Files is written by <a href="https://jacob-hogue.github.io">Jacob Hogue</a>.</p>
 
 
 
@@ -166,7 +168,7 @@ ul.task-list li input[type="checkbox"] {
   var base = nav ? nav.getAttribute("src").replace(/site_libs\/quarto-nav\/quarto-nav\.js.*$/, "") : "";
   if (!document.querySelector(".sf-hero-mount")) return;
   ["react.production.min.js", "react-dom.production.min.js", "three.min.js", "shapefiles.bundle.js", "hero-mount.js"].reduce(function (p, f) {
-    return p.then(function () { return new Promise(function (done) { var e = document.createElement("script"); e.src = base + "assets/js/" + f + "?v=20261103124039"; e.onload = done; e.onerror = done; document.body.appendChild(e); }); });
+    return p.then(function () { return new Promise(function (done) { var e = document.createElement("script"); e.src = base + "assets/js/" + f + "?v=20261103134235"; e.onload = done; e.onerror = done; document.body.appendChild(e); }); });
   }, Promise.resolve());
 })();
 </script>
