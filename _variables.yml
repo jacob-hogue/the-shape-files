@@ -1,0 +1,16 @@
+x001:
+  exact: 1,079.3
+  check: 1,079.3
+  class12: 2,974.2
+  forest: 3,382.2
+  img200: 1,045.5
+  img200cell: '60'
+  img1000: 1,073.7
+  img1000cell: '12'
+  err200: '3.1'
+  err1000: '0.5'
+  ncap: '26'
+  nuse: '20'
+  vertices: '293'
+  date: '2026-11-03'
+  env: Python 3.13.17, GeoPandas 1.2.0, Shapely 2.2.0, DuckDB 2.0.0

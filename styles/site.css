@@ -1,0 +1,64 @@
+/* The Shape-Files: Quarto overrides. Every color comes from styles/tokens.css. */
+body { background: var(--paper); color: var(--ink); font-family: var(--font-serif); font-size: 18px; line-height: 1.68; }
+h1, h2, h3, h4, .title, .navbar-title { font-family: var(--font-display); color: var(--ink); text-wrap: balance; }
+h1.title { font-size: 44px; line-height: 1.05; font-weight: 760; font-stretch: 112%; letter-spacing: -0.015em; margin-bottom: 12px; }
+.quarto-title .subtitle, p.subtitle { font-family: var(--font-serif); font-size: 21px; line-height: 32px; color: var(--ink-muted); font-weight: 400; }
+h2 { font-size: 28px; line-height: 34px; font-weight: 700; letter-spacing: -0.01em; margin-top: 56px; border-bottom: 0; }
+h3 { font-size: 20px; line-height: 26px; font-weight: 680; margin-top: 32px; }
+a { color: var(--link); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--magenta-ink); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.navbar { background: var(--paper) !important; border-bottom: 1px solid var(--line); }
+.navbar .navbar-title, .navbar .nav-link, .navbar .navbar-brand { color: var(--ink) !important; }
+.navbar .navbar-title { font-weight: 800; font-stretch: 112%; letter-spacing: -0.01em; }
+.navbar .nav-link:hover { color: var(--magenta-ink) !important; }
+.navbar-logo { max-height: 28px; }
+#quarto-announcement { background: var(--amber-soft) !important; color: var(--amber-ink) !important; border: 0; border-bottom: 1px solid var(--amber-ink); border-radius: 0; margin: 0; padding: 8px 16px; font-family: var(--font-mono); font-size: 13px; line-height: 20px; }
+#quarto-announcement .quarto-announcement-content { max-width: none; padding: 0; }
+#quarto-announcement p { max-width: none; margin: 0; }
+#quarto-announcement .quarto-announcement-icon { display: none; }
+#quarto-announcement a { color: var(--amber-ink); }
+#quarto-content, main.content { color: var(--ink); }
+.quarto-title-meta-heading { font-family: var(--font-display); font-stretch: 125%; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-muted); }
+.quarto-title-meta-contents, .quarto-categories .quarto-category { font-family: var(--font-mono); font-size: 13px; color: var(--ink-muted); }
+.quarto-categories .quarto-category { border: 1px solid var(--line-strong); border-radius: 2px; background: transparent; }
+p, li { max-width: 68ch; }
+.quarto-title-block .description { display: none; }   /* kept for search and link previews; the subtitle already says it */
+code, p code:not(.sourceCode), li code:not(.sourceCode), td code:not(.sourceCode), .sf-callout code { font-family: var(--font-mono); font-size: 0.86em; color: var(--ink) !important; background-color: var(--paper-sunk) !important; padding: 1px 4px; border-radius: 2px; }
+pre, div.sourceCode { background: var(--paper-sunk) !important; border: 1px solid var(--line); border-radius: 4px; }
+pre code, div.sourceCode code { background: transparent; padding: 0; font-size: 14px; line-height: 22px; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) div.sourceCode span { color: var(--ink) !important; } :root:not([data-theme="light"]) div.sourceCode span.kw, :root:not([data-theme="light"]) div.sourceCode span.fu { color: var(--magenta-ink) !important; } :root:not([data-theme="light"]) div.sourceCode span.st, :root:not([data-theme="light"]) div.sourceCode span.dv { color: var(--cyan-ink) !important; } }
+blockquote { border-left: 0; padding-left: 0; color: var(--ink-muted); font-style: italic; }
+table { color: var(--ink); }
+.table { --bs-table-color: var(--ink); --bs-table-bg: transparent; border-color: var(--line); }
+hr { border-color: var(--line); opacity: 1; }
+#TOC, .sidebar nav[role="doc-toc"] { font-family: var(--font-display); font-size: 13px; }
+#TOC .nav-link, .sidebar nav[role="doc-toc"] a { color: var(--ink-muted); }
+#TOC a.nav-link.active, .sidebar nav[role="doc-toc"] ul > li > a.active { color: var(--magenta-ink) !important; border-left-color: var(--magenta) !important; }
+#TOC a.nav-link:hover { color: var(--ink) !important; }
+#TOC ul, .sidebar nav[role="doc-toc"] ul { border-left-color: var(--line) !important; }
+#toc-title { font-family: var(--font-display); font-stretch: 125%; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-muted); }
+.nav-footer, .page-footer { background: var(--paper) !important; color: var(--ink-muted); border-top: 1px solid var(--line); font-family: var(--font-mono); font-size: 12px; }
+.csl-entry { font-size: 15px; line-height: 23px; margin-bottom: 8px; }
+#refs { color: var(--ink); }
+.citation a, a.citation { text-decoration: none; }
+
+/* design-system pieces inside articles */
+.sf-hero-mount { margin: 8px 0 24px; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; min-height: 120px; background: var(--paper); }
+.sf-article-path { margin: 0 0 32px; }
+.sf-article-path .sf-prereq { max-width: 100%; }
+.sf-fig { margin: 40px 0; max-width: 100%; }
+.sf-fig-plain { padding: 0; }
+.sf-fig .sf-fig-body svg, .sf-fig .sf-fig-body img { max-width: 100%; height: auto; }
+.sf-fig-cap .sf-legend { margin-bottom: 4px; }
+.sf-callout { margin: 32px 0; }
+.sf-callout .sf-callout-head p, .sf-callout p { margin: 0; }
+.sf-tl { margin: 8px 0 0; }
+.sf-tl-label { font-size: 16px; }
+.listing-title, .quarto-listing .listing-title { font-family: var(--font-display); font-weight: 700; }
+.sf-home-hero { position: relative; margin: 0 0 40px; }
+.sf-home-hero .sf-hero-mount { margin: 0; }
+.sf-home-words { margin-top: 20px; }
+.sf-home-name { font-family: var(--font-display); font-size: clamp(44px, 8vw, 80px); line-height: 0.94; font-weight: 800; font-stretch: 108%; letter-spacing: -0.025em; margin: 0; }
+.sf-home-tag { font-family: var(--font-serif); font-size: 19px; color: var(--ink-muted); margin-top: 12px; }
+@media (max-width: 600px) { body { font-size: 17px; } h1.title { font-size: 34px; } .quarto-title .subtitle { font-size: 18px; line-height: 27px; } }
