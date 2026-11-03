@@ -87,9 +87,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-project','listing-website','listing-format','listing-lang','listing-engines','listing-_quarto-vars','listing-language','listing-draft-mode','listing-title','listing-subtitle','listing-description','listing-date','listing-categories','listing-file-number','listing-hero','listing-resources','listing-id','listing-type','listing-period','listing-topics','listing-prerequisites','listing-related_articles','listing-review','listing-bibliography','listing-link-citations','listing-path','listing-outputHref','listing-date-modified','listing-author','listing-filename','listing-file-modified','listing-reading-time','listing-word-count',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
+      valueNames: ['listing-project','listing-website','listing-format','listing-lang','listing-engines','listing-_quarto-vars','listing-language','listing-draft-mode','listing-author','listing-title','listing-subtitle','listing-description','listing-date','listing-categories','listing-file-number','listing-image','listing-image-alt','listing-hero','listing-resources','listing-id','listing-type','listing-period','listing-topics','listing-prerequisites','listing-related_articles','listing-review','listing-bibliography','listing-csl','listing-link-citations','listing-path','listing-outputHref','listing-date-modified','listing-filename','listing-file-modified','listing-reading-time','listing-word-count',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
       
-      searchColumns: ["listing-project","listing-website","listing-format","listing-lang","listing-engines","listing-_quarto-vars","listing-language","listing-draft-mode","listing-title","listing-subtitle","listing-description","listing-date","listing-categories","listing-file-number","listing-hero","listing-resources","listing-id","listing-type","listing-period","listing-topics","listing-prerequisites","listing-related_articles","listing-review","listing-bibliography","listing-link-citations","listing-path","listing-outputHref","listing-date-modified","listing-author","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
+      searchColumns: ["listing-project","listing-website","listing-format","listing-lang","listing-engines","listing-_quarto-vars","listing-language","listing-draft-mode","listing-author","listing-title","listing-subtitle","listing-description","listing-date","listing-categories","listing-file-number","listing-image","listing-image-alt","listing-hero","listing-resources","listing-id","listing-type","listing-period","listing-topics","listing-prerequisites","listing-related_articles","listing-review","listing-bibliography","listing-csl","listing-link-citations","listing-path","listing-outputHref","listing-date-modified","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -101,7 +101,6 @@ ul.task-list li input[type="checkbox"] {
   });
   </script>
 <style>html{ scroll-behavior: smooth; }</style>
-<meta name="robots" content="noindex, nofollow">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
@@ -133,9 +132,21 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles/tokens.css?v=20261103155014">
-<link rel="stylesheet" href="styles/components.css?v=20261103155014">
-<link rel="stylesheet" href="styles/site.css?v=20261103155014">
+<link rel="stylesheet" href="styles/tokens.css?v=20261103163312">
+<link rel="stylesheet" href="styles/components.css?v=20261103163312">
+<link rel="stylesheet" href="styles/site.css?v=20261103163312">
+<link rel="alternate" type="application/rss+xml" title="The Shape-Files" href="index.xml" data-external="1"><meta property="og:title" content="The Shape-Files">
+<meta property="og:description" content="A technical history of GIS, told through the formats, algorithms and systems that built it.">
+<meta property="og:image" content="https://jacob-hogue.github.io/the-shape-files/assets/img/share-default.png">
+<meta property="og:site_name" content="The Shape-Files">
+<meta property="og:image:alt" content="The Shape-Files: a shapefile's .shp, .shx, .dbf and .prj files stacked above a city grid">
+<meta property="og:image:height" content="630">
+<meta property="og:image:width" content="1200">
+<meta name="twitter:title" content="The Shape-Files">
+<meta name="twitter:description" content="A technical history of GIS, told through the formats, algorithms and systems that built it.">
+<meta name="twitter:image" content="https://jacob-hogue.github.io/the-shape-files/assets/img/share-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image:alt" content="The Shape-Files: a shapefile's .shp, .shx, .dbf and .prj files stacked above a city grid">
 </head>
 
 <body class="nav-fixed fullcontent quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
@@ -167,15 +178,19 @@ window.Quarto = {
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="./index.xml"> <i class="bi bi-rss" role="img" aria-label="RSS feed">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
             <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
     </nav>
-  <div id="quarto-announcement" data-announcement-id="b26e53d206112f1563378f8ec5a08632" class="alert alert-warning hidden"><div class="quarto-announcement-content">
-<p>Draft site. Not for circulation: claims marked for verification are still being checked.</p>
-</div></div>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
@@ -212,12 +227,21 @@ window.Quarto = {
 <li><a class="sf-files-row" href="./articles/the-map-room/index.html">
 <span class="sf-files-no">File 001</span>
 <span class="sf-files-title">The Map Room: Answering Geographic Questions by Hand</span>
-<span class="sf-files-sub">Before computers, a question like how much good farmland is under forest was answered with two map sheets, a table lit from below, and a lot of counting. Each new question meant new outlines and a new count.</span>
+<span class="sf-files-sub">Before computers, a question like how much good farmland is under forest took two map sheets, a table lit from below, and a lot of counting. The next question meant new outlines and a new count.</span>
 </a></li>
 
 </ol>
 <div class="listing-no-matching d-none">No matching items</div>
 </div>
+</section>
+<section id="next" class="level2">
+<h2 class="anchored" data-anchor-id="next">Coming next</h2>
+<ol class="sf-next">
+<li><span class="sf-files-no">File 002</span><span class="sf-next-title">How Humans Learned to Measure the Earth</span><span class="sf-next-sub">Arc measurement, triangulation, the long argument over the Earth’s shape, and the reference surfaces every coordinate still depends on.</span></li>
+<li><span class="sf-files-no">File 003</span><span class="sf-next-title">Latitude, Longitude and the Datum Problem</span><span class="sf-next-sub">Why the same pair of numbers can mean places hundreds of meters apart, and what a coordinate reference system actually contains.</span></li>
+<li><span class="sf-files-no">File 004</span><span class="sf-next-title">Map Projections: Flattening a Curved Earth</span><span class="sf-next-sub">What every projection gives up, how Mercator and its relatives work, and the difference between converting and transforming coordinates.</span></li>
+</ol>
+<p class="sf-follow">A new file comes out every week. Follow along with the <a href="index.xml">RSS feed</a>.</p>
 
 
 
@@ -238,7 +262,7 @@ window.Quarto = {
   var base = nav ? nav.getAttribute("src").replace(/site_libs\/quarto-nav\/quarto-nav\.js.*$/, "") : "";
   if (!document.querySelector(".sf-hero-mount")) return;
   ["react.production.min.js", "react-dom.production.min.js", "three.min.js", "shapefiles.bundle.js", "hero-mount.js"].reduce(function (p, f) {
-    return p.then(function () { return new Promise(function (done) { var e = document.createElement("script"); e.src = base + "assets/js/" + f + "?v=20261103155014"; e.onload = done; e.onerror = done; document.body.appendChild(e); }); });
+    return p.then(function () { return new Promise(function (done) { var e = document.createElement("script"); e.src = base + "assets/js/" + f + "?v=20261103163312"; e.onload = done; e.onerror = done; document.body.appendChild(e); }); });
   }, Promise.resolve());
 })();
 </script>
@@ -746,13 +770,13 @@ window.Quarto = {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>The Shape-Files · draft</p>
+<p>The Shape-Files · by <a href="https://jacob-hogue.github.io">Jacob Hogue</a></p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
     <div class="nav-footer-right">
-<p>Built with Quarto</p>
+<p><a href="index.xml">RSS</a></p>
 </div>
   </div>
 </footer>
