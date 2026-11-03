@@ -397,8 +397,18 @@
     }
     return cv;
   }
+  /* On narrow screens the banner gets shorter and the camera backs off until the whole stack fits inside
+     opts.narrow.box ([left, top, right, bottom] as fractions of the frame), instead of cropping it. */
+  var HERO_NARROW = 640;
+  function heroHeight(w, o) {
+    var fixed = o.narrow && o.narrow.height, vh = window.innerHeight || 900;
+    if (w < HERO_NARROW) return fixed || Math.round(Math.min(300, Math.max(200, w * 0.56)));
+    if (!fixed && vh < 520) return Math.min(o.height, Math.max(180, Math.round(vh * 0.55)));   /* phones held sideways */
+    return o.height;
+  }
   function buildHero(T, el, opts) {
-    var W = el.clientWidth || 960, H = opts.height;
+    var W = el.clientWidth || 960, H = heroHeight(W, opts);
+    el.style.height = H + "px";
     var pal = {
       paper: cssTok("paper", "#fbf8fa"), sunk: cssTok("paper-sunk", "#f3ecf1"), raised: cssTok("paper-raised", "#ffffff"),
       line: cssTok("line", "#e6dbe3"), ink: cssTok("ink", "#1c1220"), inkMuted: cssTok("ink-muted", "#5e4f5d"), inkFaint: cssTok("ink-faint", "#9a8996"),
@@ -484,12 +494,33 @@
     var sc = sun.shadow.camera; sc.left = -40; sc.right = 40; sc.top = 40; sc.bottom = -40; sc.near = 1; sc.far = 140;
     scene.add(sun);
     var cam = new T.PerspectiveCamera(opts.fov || 22, W / H, 1, 400);
-    cam.position.set(sx - 19, 16.5, sz + 25); cam.lookAt(sx - 0.6, (topY + BASE) / 2 - 0.9, sz - 1.2);
-    function frame(w) { cam.aspect = w / H; var off = opts.align === "center" ? 0 : -w * (opts.shift == null ? 0.24 : opts.shift); cam.setViewOffset(w, H, off, 0, w, H); cam.updateProjectionMatrix(); }
+    var TG = new T.Vector3(sx - 0.6, (topY + BASE) / 2 - 0.9, sz - 1.2), P0 = new T.Vector3(sx - 19, 16.5, sz + 25), DIR = P0.clone().sub(TG);
+    var FOG = [scene.fog.near, scene.fog.far], hull = [];
+    [-SW / 2, SW / 2].forEach(function (x) { [-SD / 2, SD / 2].forEach(function (z) { [0, topY + 0.5].forEach(function (y) { hull.push(new T.Vector3(sx + x, y, sz + z)); }); }); });
+    function frame(w) {
+      H = heroHeight(w, opts); el.style.height = H + "px";
+      cam.aspect = w / H; cam.clearViewOffset();
+      if (!(w < HERO_NARROW)) {
+        cam.position.copy(P0); cam.lookAt(TG); scene.fog.near = FOG[0]; scene.fog.far = FOG[1];
+        var off = opts.align === "center" ? 0 : -w * (opts.shift == null ? 0.24 : opts.shift);
+        cam.setViewOffset(w, H, off, 0, w, H); cam.updateProjectionMatrix(); return;
+      }
+      var box = (opts.narrow && opts.narrow.box) || [0.08, 0.06, 0.92, 0.94], bw = box[2] - box[0], bh = box[3] - box[1], k, ext;
+      for (k = 0.6; k < 4; k += 0.02) {
+        cam.position.copy(TG).addScaledVector(DIR, k); cam.lookAt(TG); cam.updateMatrixWorld(true); cam.updateProjectionMatrix();
+        ext = [Infinity, -Infinity, Infinity, -Infinity];
+        hull.forEach(function (v) { var q = v.clone().project(cam); ext[0] = Math.min(ext[0], q.x); ext[1] = Math.max(ext[1], q.x); ext[2] = Math.min(ext[2], q.y); ext[3] = Math.max(ext[3], q.y); });
+        if ((ext[1] - ext[0]) / 2 <= bw && (ext[3] - ext[2]) / 2 <= bh) break;
+      }
+      scene.fog.near = FOG[0] * k; scene.fog.far = FOG[1] * k;
+      var offX = ((ext[0] + ext[1]) / 4 + 0.5 - (box[0] + box[2]) / 2) * w, offY = (0.5 - (ext[2] + ext[3]) / 4 - (box[1] + box[3]) / 2) * H;
+      cam.setViewOffset(w, H, offX, offY, w, H); cam.updateProjectionMatrix();
+    }
     frame(W);
+    renderer.setSize(W, H);
     renderer.render(scene, cam);
     return {
-      resize: function (w) { renderer.setSize(w, H); frame(w); renderer.render(scene, cam); },
+      resize: function (w) { frame(w); renderer.setSize(w, H); renderer.render(scene, cam); },
       dispose: function () {
         scene.traverse(function (o) { if (o.geometry) o.geometry.dispose(); var ms = o.material ? (Array.isArray(o.material) ? o.material : [o.material]) : []; ms.forEach(function (m) { if (m.map) m.map.dispose(); m.dispose(); }); });
         renderer.dispose(); if (renderer.domElement.parentNode) renderer.domElement.parentNode.removeChild(renderer.domElement);
@@ -498,15 +529,15 @@
   }
   function HeroScene(p) {
     var ref = R.useRef(null), st = R.useState(false), failed = st[0], setFailed = st[1];
-    var height = p.height || 360, layers = p.layers || HERO_LAYERS;
-    var key = JSON.stringify([layers, p.seed, p.align, p.shift, p.fov, height]);
+    var height = heroHeight(document.documentElement.clientWidth || 960, { height: p.height || 360, narrow: p.narrow }), layers = p.layers || HERO_LAYERS;
+    var key = JSON.stringify([layers, p.seed, p.align, p.shift, p.fov, p.height, p.narrow]);
     R.useEffect(function () {
       var el = ref.current, T = window.THREE, inst = null, dead = false, lastW = 0;
       if (!el || !T) { setFailed(true); return; }
       function make() {
         if (dead) return;
         if (inst) { inst.dispose(); inst = null; }
-        try { inst = buildHero(T, el, { height: height, layers: layers, seed: p.seed, align: p.align, shift: p.shift, fov: p.fov }); lastW = el.clientWidth; }
+        try { inst = buildHero(T, el, { height: p.height || 360, narrow: p.narrow, layers: layers, seed: p.seed, align: p.align, shift: p.shift, fov: p.fov }); lastW = el.clientWidth; }
         catch (e) { setFailed(true); }
       }
       var fonts = document.fonts;

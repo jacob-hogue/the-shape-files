@@ -101,9 +101,9 @@ div.csl-indent {
 <style>html{ scroll-behavior: smooth; }</style>
 
 
-<link rel="stylesheet" href="../../styles/tokens.css?v=20261103224046">
-<link rel="stylesheet" href="../../styles/components.css?v=20261103224046">
-<link rel="stylesheet" href="../../styles/site.css?v=20261103224046">
+<link rel="stylesheet" href="../../styles/tokens.css?v=20261103225104">
+<link rel="stylesheet" href="../../styles/components.css?v=20261103225104">
+<link rel="stylesheet" href="../../styles/site.css?v=20261103225104">
 <meta property="og:title" content="The Map Room: Answering Geographic Questions by Hand – The Shape-Files">
 <meta property="og:description" content="How foresters, planners, and land inventories answered map questions by hand, with light tables, planimeters, and dot grids, and why that way of working couldn’t keep up.">
 <meta property="og:image" content="https://jacob-hogue.github.io/the-shape-files/articles/the-map-room/figures/share.png">
@@ -176,7 +176,7 @@ div.csl-indent {
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content" tabindex="-1">
 
-<div class="sf-hero-mount sf-hero-bleed column-screen" data-height="360" data-seed="1854" data-shift="0.2" data-title="Banner: two map sheets and a sheet of tracing film floating above a city grid; the tracing film is highlighted" data-stack="=tracing, drafting film, polygons, subject; =land use, map sheet, lines; =capability, map sheet, graticule"></div>
+<div class="sf-hero-mount sf-hero-bleed column-screen" style="--sf-hero-h: 360px" data-height="360" data-seed="1854" data-shift="0.2" data-title="Banner: two map sheets and a sheet of tracing film floating above a city grid; the tracing film is highlighted" data-stack="=tracing, drafting film, polygons, subject; =land use, map sheet, lines; =capability, map sheet, graticule"></div>
 <script>
 /* Lift the banner out of the article grid so it spans the page under the navbar and stays clear of the table of contents. */
 (function () { var h = document.currentScript.previousElementSibling, c = document.getElementById("quarto-content"); if (h && c) { h.classList.remove("column-screen"); c.parentNode.insertBefore(h, c); } })();
@@ -274,7 +274,7 @@ Start here: no prerequisites
 </colgroup>
 <thead>
 <tr class="header">
-<th>Grid</th>
+<th>Dots per square inch</th>
 <th>Each dot stands for</th>
 <th>Dots counted, typically</th>
 <th>Nine counts in ten fall between</th>
@@ -282,13 +282,13 @@ Start here: no prerequisites
 </thead>
 <tbody>
 <tr class="odd">
-<td>16 dots per square inch</td>
+<td>16</td>
 <td>10.1 ha</td>
 <td>about 107</td>
 <td>1,038 and 1,109 ha</td>
 </tr>
 <tr class="even">
-<td>64 dots per square inch</td>
+<td>64</td>
 <td>2.52 ha</td>
 <td>about 428</td>
 <td>1,061 and 1,096 ha</td>
@@ -298,7 +298,7 @@ Start here: no prerequisites
 <p>The finer grid means four times as many dots to count, and in return nine counts in ten come within 2% of the true answer, 1,079.3 ha. These are ideal counts, with no tracing error and no tired eyes, and the boundaries in the test area are straight lines. Real boundaries curve and wander, and a Canadian Forestry Service study found that a count’s error depends on a patch’s shape as well as on how many dots fall inside it.<span class="citation" data-cites="bonnor1975"><sup><a href="#ref-bonnor1975" role="doc-biblioref">17</a></sup></span></p>
 <figure class="sf-fig sf-fig-drawing figure" aria-labelledby="fig-5-cap">
 <div class="sf-fig-frame"><div class="sf-fig-body">
-<svg xlink="http://www.w3.org/1999/xlink" width="100%" height="auto" preserveaspectratio="xMidYMid meet" viewbox="0 0 648 432" xmlns="http://www.w3.org/2000/svg" version="1.1">
+<svg xlink="http://www.w3.org/1999/xlink" width="100%" preserveaspectratio="xMidYMid meet" viewbox="0 0 648 432" xmlns="http://www.w3.org/2000/svg" version="1.1">
 <defs> <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style> </defs> <g id="figure_1"> <g id="patch_1"> <path d="M 0 432 
 L 648 432 
 L 648 0 
@@ -584,7 +584,7 @@ z
   var base = nav ? nav.getAttribute("src").replace(/site_libs\/quarto-nav\/quarto-nav\.js.*$/, "") : "";
   if (!document.querySelector(".sf-hero-mount")) return;
   ["react.production.min.js", "react-dom.production.min.js", "three.min.js", "shapefiles.bundle.js", "hero-mount.js"].reduce(function (p, f) {
-    return p.then(function () { return new Promise(function (done) { var e = document.createElement("script"); e.src = base + "assets/js/" + f + "?v=20261103224046"; e.onload = done; e.onerror = done; document.body.appendChild(e); }); });
+    return p.then(function () { return new Promise(function (done) { var e = document.createElement("script"); e.src = base + "assets/js/" + f + "?v=20261103225104"; e.onload = done; e.onerror = done; document.body.appendChild(e); }); });
   }, Promise.resolve());
 })();
 </script>

@@ -1,5 +1,6 @@
 /* Mounts a HeroScene banner into every element with class sf-hero-mount.
-   Attributes: data-height, data-seed, data-shift, data-title, data-layers (JSON, top layer first). */
+   Attributes: data-height, data-seed, data-shift, data-title, data-layers (JSON, top layer first),
+   data-stack, data-narrow-height, data-narrow-box. */
 (function () {
   function mount() {
     var S = window.ShapeFiles;
@@ -10,6 +11,8 @@
       var props = { height: Number(el.dataset.height || 320), seed: Number(el.dataset.seed || 7) };
       if (el.dataset.shift) props.shift = Number(el.dataset.shift);
       if (el.dataset.title) props.title = el.dataset.title;
+      /* data-narrow-height (px) and data-narrow-box ("left,top,right,bottom" fractions) set the phone framing */
+      if (el.dataset.narrowHeight || el.dataset.narrowBox) props.narrow = { height: Number(el.dataset.narrowHeight) || null, box: el.dataset.narrowBox ? el.dataset.narrowBox.split(",").map(Number) : null };
       try { if (el.dataset.layers) props.layers = JSON.parse(el.dataset.layers); } catch (e) { /* fall back to the default stack */ }
       if (el.dataset.stack) {
         /* "ext, role, motif[, subject]; ..." with the top layer first */
