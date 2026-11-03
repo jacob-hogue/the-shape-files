@@ -1,42 +1,35 @@
-# The Shape-Files
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset=".github/hero-dark.png">
+  <img src=".github/hero-light.png" alt="The Shape-Files: a shapefile's .shp, .shx, .dbf and .prj files stacked above a city grid">
+</picture>
 
-Source for *The Shape-Files*, a long-form technical history of GIS and geospatial computing. The site is built with [Quarto](https://quarto.org) and deployed to GitHub Pages by `.github/workflows/publish.yml`.
+A technical history of GIS and geospatial computing by [Jacob Hogue](https://jacob-hogue.github.io). Each article starts with a real problem, shows how the technology answered it, and traces where that answer lives in the tools people use now. Every claim cites its source, and every result comes from code in this repository that you can run yourself.
 
-**Status: draft.** Pages carry a `noindex` tag and a draft banner until launch.
+**Read it at [jacob-hogue.github.io/the-shape-files](https://jacob-hogue.github.io/the-shape-files/).**
 
-## Layout
+## Articles
 
-| Path | What it holds |
-|---|---|
-| `articles/<slug>/index.qmd` | One article, its figures and front matter (`id`, `volume`, `sequence`, `topics`, review status) |
-| `lab/<experiment>/` | The code behind an article's demonstration: `run.py`, `requirements.txt`, `results.json`, data and figures |
-| `_variables.yml` | Numbers written by `lab/*/run.py`, used in articles as `{{< var x001.exact >}}` so nothing is copied by hand |
-| `references.bib` | Bibliography for all articles |
-| `design/tokens.json` | Design tokens from the design system; `tools/build_tokens.py` compiles them to `styles/tokens.css` |
-| `assets/js/` | React 18.3.1, three.js 0.149.0 and the design-system bundle, used for the banner on articles that have one |
-| `tools/voice_scan.py` | Checks a draft against the house voice rules (banned words, structural tells, American usage) |
+| | Article | Code |
+|---|---|---|
+| A001 | [Before GIS Was Software: What Makes a Geographic Information System?](https://jacob-hogue.github.io/the-shape-files/articles/before-gis-was-software/) | [X001](lab/X001-three-representations) |
 
-## Working locally
+## Run the experiments
 
-```sh
-quarto preview                      # live preview
-quarto render                       # build into _site/
-python3 tools/voice_scan.py articles/before-gis-was-software/index.qmd
-```
-
-To rerun an experiment and refresh the numbers an article quotes:
+Each article's numbers come from a script in `lab/`. To rerun one:
 
 ```sh
 cd lab/X001-three-representations
 python3 -m venv .venv && . .venv/bin/activate
 pip install -r requirements.txt
-python3 run.py && python3 figures.py
+python3 run.py
 ```
 
-`run.py` rewrites `results.json` and `_variables.yml`. Commit both; the publish workflow renders the site but doesn't rerun Python.
+The data is synthetic and the seed is fixed, so you should get the same numbers as the article.
 
-## Rules that apply to every change
+## Build the site
 
-- No invented sources, quotations, results or experience. A claim needs a source in `references.bib` or a result from code in `lab/`.
-- Every number in an article comes from `_variables.yml` or a cited source.
-- Corrections are recorded in the article's front matter, not made silently.
+The site is built with [Quarto](https://quarto.org) 1.11:
+
+```sh
+quarto preview
+```
