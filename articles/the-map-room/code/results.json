@@ -1,0 +1,92 @@
+{
+ "article": "File 001, The Map Room",
+ "scale": "1:50,000",
+ "sheet_cm": [
+  24.0,
+  16.0
+ ],
+ "questions": {
+  "class 1-2 under forest": {
+   "true_hectares": 1079.3,
+   "patches_to_outline": 2,
+   "grids": {
+    "16": {
+     "dot_spacing_m": 317.5,
+     "hectares_per_dot": 10.08,
+     "dots_counted_median": 107,
+     "estimate_median_ha": 1078.6,
+     "estimate_p05_ha": 1037.8,
+     "estimate_p95_ha": 1109.4,
+     "error_p95_pct": 4.6
+    },
+    "64": {
+     "dot_spacing_m": 158.8,
+     "hectares_per_dot": 2.52,
+     "dots_counted_median": 428,
+     "estimate_median_ha": 1079.9,
+     "estimate_p05_ha": 1061.0,
+     "estimate_p95_ha": 1096.3,
+     "error_p95_pct": 1.8
+    }
+   }
+  },
+  "class 1-2 under cropland": {
+   "true_hectares": 1031.2,
+   "patches_to_outline": 4,
+   "grids": {
+    "16": {
+     "dot_spacing_m": 317.5,
+     "hectares_per_dot": 10.08,
+     "dots_counted_median": 101,
+     "estimate_median_ha": 1018.1,
+     "estimate_p05_ha": 967.7,
+     "estimate_p95_ha": 1129.0,
+     "error_p95_pct": 9.5
+    },
+    "64": {
+     "dot_spacing_m": 158.8,
+     "hectares_per_dot": 2.52,
+     "dots_counted_median": 401,
+     "estimate_median_ha": 1010.6,
+     "estimate_p05_ha": 992.9,
+     "estimate_p95_ha": 1081.1,
+     "error_p95_pct": 4.8
+    }
+   }
+  },
+  "class 3-4 under pasture": {
+   "true_hectares": 937.0,
+   "patches_to_outline": 4,
+   "grids": {
+    "16": {
+     "dot_spacing_m": 317.5,
+     "hectares_per_dot": 10.08,
+     "dots_counted_median": 93,
+     "estimate_median_ha": 937.5,
+     "estimate_p05_ha": 886.6,
+     "estimate_p95_ha": 987.9,
+     "error_p95_pct": 6.4
+    },
+    "64": {
+     "dot_spacing_m": 158.8,
+     "hectares_per_dot": 2.52,
+     "dots_counted_median": 372,
+     "estimate_median_ha": 937.5,
+     "estimate_p05_ha": 914.7,
+     "estimate_p95_ha": 955.1,
+     "error_p95_pct": 2.6
+    }
+   }
+  }
+ },
+ "figure": {
+  "dots_inside_first_placement_16": 103
+ },
+ "executed_utc": "2026-11-03T14:50:03Z",
+ "environment": {
+  "python": "3.13.17",
+  "geopandas": "1.2.0",
+  "shapely": "2.2.0",
+  "numpy": "2.5.3"
+ }
+}

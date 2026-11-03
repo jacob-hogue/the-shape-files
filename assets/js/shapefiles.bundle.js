@@ -361,7 +361,9 @@
     g.globalAlpha = L.subject ? 0.45 : 1; g.strokeStyle = L.subject ? pal.onMagenta : pal.line; g.lineWidth = 3; g.strokeRect(36, 36, cw - 72, ch - 72); g.globalAlpha = 1;
     g.fillStyle = fg; g.textBaseline = "alphabetic";
     /* label on the front edge (texture bottom): the slab above never hides it */
-    g.font = "800 150px " + fam.display; g.fillText("." + (L.ext || ""), 76, ch - 150);
+    var txt = L.label || ("." + (L.ext || "")), fs = 150; g.font = "800 150px " + fam.display;
+    var tw = g.measureText(txt).width; if (tw > 390) { fs = Math.max(84, Math.floor(150 * 390 / tw)); g.font = "800 " + fs + "px " + fam.display; }
+    g.fillText(txt, 76, ch - 150);
     g.font = "500 58px " + fam.mono; g.fillStyle = mut; g.fillText(L.role || "", 82, ch - 74);
     g.strokeStyle = mut; g.fillStyle = mut; g.lineWidth = 6; g.lineJoin = "round"; g.lineCap = "round";
     var x0 = 490, y0 = 150, w = 450, hh = 340, m = L.motif;

@@ -179,7 +179,7 @@ results = {
     "tables_sql": TABLE_SQL.replace("{d}", "data"),
 }
 (HERE / "results.json").write_text(json.dumps(results, indent=1))
-var = {"file001": {
+var = {"file017": {
     "exact": f"{store_ha:,.1f}", "check": f"{check_ha:,.1f}", "class12": f"{table_cap12_ha:,.1f}", "forest": f"{table_forest_ha:,.1f}", "tablesql": f"{tables_engine_ha:,.1f}",
     "img200": f"{estimates[200]['hectares']:,.1f}", "img200cell": f"{estimates[200]['cell_m']:g}",
     "img1000": f"{estimates[1000]['hectares']:,.1f}", "img1000cell": f"{estimates[1000]['cell_m']:g}",
@@ -187,5 +187,8 @@ var = {"file001": {
     "ncap": str(len(cap)), "err1000exact": f"{abs(estimates[1000]['hectares'] - store_ha) / store_ha * 100:.2f}", "nuse": str(len(use)), "vertices": f"{vertex_rows:,}",
     "date": results["executed_utc"][:10], "env": f"Python {platform.python_version()}, GeoPandas {gpd.__version__}, Shapely {shapely.__version__}, DuckDB {duckdb.__version__}"}}
 import yaml
-(HERE.parents[2] / "_variables.yml").write_text(yaml.safe_dump(var, sort_keys=False))
+vf = HERE.parents[2] / "_variables.yml"
+allvars = yaml.safe_load(vf.read_text()) if vf.exists() else {}
+allvars.update(var)                      # keep other files' variables
+vf.write_text(yaml.safe_dump(allvars, sort_keys=False))
 print(json.dumps(results, indent=1))

@@ -11,17 +11,17 @@ A technical history of GIS and geospatial computing by [Jacob Hogue](https://jac
 
 | No. | Title | Code |
 |---|---|---|
-| 001 | [Before GIS Was Software: What Makes a Geographic Information System?](https://jacob-hogue.github.io/the-shape-files/articles/before-gis-was-software/) | [code](articles/before-gis-was-software/code) |
+| 001 | [The Map Room: Answering Geographic Questions by Hand](https://jacob-hogue.github.io/the-shape-files/articles/the-map-room/) | [code](articles/the-map-room/code) |
 
 ## Run the code
 
 Every number in a file comes from the script in its `code` folder. To rerun one:
 
 ```sh
-cd articles/before-gis-was-software/code
+cd articles/the-map-room/code
 python3 -m venv .venv && . .venv/bin/activate
 pip install -r requirements.txt
 python3 run.py
 ```
 
-The data is synthetic and the seed is fixed, so you should get the same numbers as the article.
+The test data is invented and the seed is fixed, so you should get the same numbers as the article.

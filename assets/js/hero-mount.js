@@ -15,8 +15,10 @@
         /* "ext, role, motif[, subject]; ..." with the top layer first */
         props.layers = el.dataset.stack.split(";").map(function (part) {
           var f = part.split(",").map(function (x) { return x.trim(); });
-          return { ext: f[0], role: f[1], motif: f[2], subject: f[3] === "subject" };
-        }).filter(function (L) { return L.ext; });
+          var L = { role: f[1], motif: f[2], subject: f[3] === "subject" };
+          if (f[0].charAt(0) === "=") L.label = f[0].slice(1); else L.ext = f[0];   /* "=word" draws a plain label instead of a file extension */
+          return L;
+        }).filter(function (L) { return L.ext || L.label; });
       }
       ReactDOM.createRoot(el).render(React.createElement(S.HeroScene, props));
     });
