@@ -78,9 +78,9 @@ ul.task-list li input[type="checkbox"] {
 <style>html{ scroll-behavior: smooth; }</style>
 
 
-<link rel="stylesheet" href="styles/tokens.css?v=20261103164204">
-<link rel="stylesheet" href="styles/components.css?v=20261103164204">
-<link rel="stylesheet" href="styles/site.css?v=20261103164204">
+<link rel="stylesheet" href="styles/tokens.css?v=20261103165416">
+<link rel="stylesheet" href="styles/components.css?v=20261103165416">
+<link rel="stylesheet" href="styles/site.css?v=20261103165416">
 <meta property="og:title" content="About The Shape-Files – The Shape-Files">
 <meta property="og:description" content="A technical history of GIS, told through the formats, algorithms and systems that built it.">
 <meta property="og:image" content="https://jacob-hogue.github.io/the-shape-files/assets/img/share-default.png">
@@ -186,8 +186,35 @@ ul.task-list li input[type="checkbox"] {
   var base = nav ? nav.getAttribute("src").replace(/site_libs\/quarto-nav\/quarto-nav\.js.*$/, "") : "";
   if (!document.querySelector(".sf-hero-mount")) return;
   ["react.production.min.js", "react-dom.production.min.js", "three.min.js", "shapefiles.bundle.js", "hero-mount.js"].reduce(function (p, f) {
-    return p.then(function () { return new Promise(function (done) { var e = document.createElement("script"); e.src = base + "assets/js/" + f + "?v=20261103164204"; e.onload = done; e.onerror = done; document.body.appendChild(e); }); });
+    return p.then(function () { return new Promise(function (done) { var e = document.createElement("script"); e.src = base + "assets/js/" + f + "?v=20261103165416"; e.onload = done; e.onerror = done; document.body.appendChild(e); }); });
   }, Promise.resolve());
+})();
+</script>
+
+<script>
+/* Click a photo to see it full size, with its caption. Esc, a click or the close button returns. */
+(function () {
+  var links = document.querySelectorAll("a.sf-zoom");
+  if (!links.length) return;
+  var box = document.createElement("div");
+  box.className = "sf-zoombox"; box.setAttribute("role", "dialog"); box.setAttribute("aria-modal", "true"); box.hidden = true;
+  box.innerHTML = '<button class="sf-zoombox-close" type="button" aria-label="Close">×</button><figure><img alt=""><figcaption></figcaption></figure>';
+  document.body.appendChild(box);
+  var img = box.querySelector("img"), cap = box.querySelector("figcaption"), closeBtn = box.querySelector("button"), last = null;
+  function close() { box.hidden = true; document.documentElement.classList.remove("sf-zoom-open"); img.removeAttribute("src"); if (last) last.focus(); }
+  links.forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      if (e.metaKey || e.ctrlKey || e.shiftKey) return;
+      e.preventDefault(); last = a;
+      var f = a.closest("figure"), i = a.querySelector("img"), c = f && f.querySelector("figcaption");
+      img.src = a.getAttribute("href"); img.alt = i ? i.alt : "";
+      cap.innerHTML = c ? c.innerHTML : "";
+      box.setAttribute("aria-label", i ? i.alt : "Figure");
+      box.hidden = false; document.documentElement.classList.add("sf-zoom-open"); closeBtn.focus();
+    });
+  });
+  box.addEventListener("click", function (e) { if (e.target === box || e.target === img || e.target === closeBtn) close(); });
+  document.addEventListener("keydown", function (e) { if (!box.hidden && e.key === "Escape") close(); });
 })();
 </script>
 <script id="quarto-html-after-body" type="application/javascript">

@@ -91,13 +91,6 @@ body > .sf-hero-bleed, #quarto-header ~ .sf-hero-bleed, .sf-hero-bleed:not(.sf-c
 .sf-files-sub { font-family: var(--font-serif); font-size: 17px; line-height: 26px; color: var(--ink-muted); }
 @media (max-width: 600px) { .sf-cover-words { bottom: 28px; } .sf-cover-tag { font-size: 16px; line-height: 23px; max-width: 280px; } .sf-cover-scrim { background: linear-gradient(0deg, var(--paper) 0%, var(--paper) 30%, transparent 75%); } .sf-files-row { grid-template-columns: 1fr; } .sf-files-no { grid-row: auto; padding: 0; } body { font-size: 17px; } h1.title { font-size: 34px; } .quarto-title .subtitle { font-size: 18px; line-height: 27px; } }
 
-/* Photographs and scans: full-bleed inside the frame, with a credit line */
-.sf-fig-photo .sf-fig-body { padding: 0; display: block; }
-.sf-fig-photo .sf-fig-body img { display: block; width: 100%; height: auto; }
-.sf-fig-credit { font-family: var(--font-mono); font-size: 11.5px; line-height: 17px; color: var(--ink-muted); overflow-wrap: anywhere; }
-.sf-fig-credit a { color: inherit; text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 2px; }
-.sf-fig-credit a:hover { text-decoration-color: currentColor; }
-
 /* Byline: author · date · reading time */
 #title-block-header .quarto-title-meta.sf-byline { display: flex !important; flex-wrap: wrap; align-items: baseline; gap: 4px 0; grid-template-columns: none; margin-top: 18px; }
 .sf-byline p { margin: 0; font-family: var(--font-mono); font-size: 13px; line-height: 20px; color: var(--ink-muted); }
@@ -119,3 +112,41 @@ body > .sf-hero-bleed, #quarto-header ~ .sf-hero-bleed, .sf-hero-bleed:not(.sf-c
 .sf-next-sub { font-family: var(--font-serif); font-size: 16px; line-height: 24px; color: var(--ink-muted); }
 .sf-follow { margin-top: 28px; font-size: 17px; color: var(--ink-muted); }
 @media (max-width: 600px) { .sf-next li { grid-template-columns: 1fr; } .sf-next .sf-files-no { grid-row: auto; padding: 0; } }
+
+/* Figures: picture first, a short caption, a small credit line (conventions §18) */
+.sf-fig { margin: 2.5rem 0 2.75rem; padding: 0; max-width: min(100%, 68ch); }  /* same measure as the text, so pictures never crowd the sidebar */
+.sf-fig-frame { display: block; position: relative; border: 1px solid var(--line); background: var(--paper-raised); border-radius: 3px; overflow: hidden; }
+.sf-fig-photo .sf-fig-frame { line-height: 0; }
+.sf-fig-photo .sf-fig-frame img { display: block; margin: 0 auto; width: auto; height: auto; max-width: 100%; max-height: min(460px, 72vh); }
+a.sf-fig-frame { cursor: zoom-in; }
+a.sf-fig-frame:focus-visible { outline: 2px solid var(--magenta); outline-offset: 3px; }
+.sf-fig-drawing .sf-fig-frame { overflow: visible; }
+.sf-fig-drawing .sf-fig-body { padding: 18px 20px; }
+.sf-fig-drawing .sf-fig-body svg { max-height: 420px; }
+.sf-fig-cap { display: block; padding: 12px 2px 0; max-width: none; font-family: var(--font-serif); font-style: normal; font-size: 15px; line-height: 23px; color: var(--ink-muted); }
+.sf-fig-cap p { margin: 0; max-width: none; }
+.sf-fig-label { font-family: var(--font-display); font-weight: 700; font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--magenta-ink); margin-right: 0.6em; white-space: nowrap; }
+.sf-fig-credit { display: block; margin-top: 5px; font-family: var(--font-display); font-size: 12px; line-height: 17px; color: var(--ink-faint); }
+.sf-fig-credit a { color: inherit; text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 2px; }
+.sf-fig-credit a:hover { color: var(--ink-muted); text-decoration-color: currentColor; }
+.sf-zoombox { position: fixed; inset: 0; z-index: 2000; background: rgba(12, 7, 14, 0.92); display: flex; align-items: center; justify-content: center; padding: 48px 24px 24px; }
+.sf-zoombox[hidden] { display: none; }
+.sf-zoombox figure { margin: 0; max-width: min(1600px, 100%); max-height: 100%; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.sf-zoombox img { max-width: 100%; max-height: calc(100vh - 170px); width: auto; height: auto; cursor: zoom-out; filter: none; }
+.sf-zoombox figcaption { max-width: 72ch; font-family: var(--font-serif); font-size: 15px; line-height: 22px; color: #e9dfe7; }
+.sf-zoombox figcaption .sf-fig-label { color: #f0449e; }
+.sf-zoombox figcaption .sf-fig-credit, .sf-zoombox figcaption a { color: #b9a9b6; }
+.sf-zoombox-close { position: absolute; top: 10px; right: 14px; width: 40px; height: 40px; border: 0; border-radius: 20px; background: transparent; color: #f6eef4; font-size: 30px; line-height: 40px; cursor: pointer; }
+.sf-zoombox-close:focus-visible { outline: 2px solid #f0449e; }
+html.sf-zoom-open { overflow: hidden; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .sf-fig-photo img { filter: brightness(0.88); } }
+:root[data-theme="dark"] .sf-fig-photo img, body.quarto-dark .sf-fig-photo img { filter: brightness(0.88); }
+@media (max-width: 600px) {
+  .sf-fig { margin: 2rem 0 2.25rem; }
+  .sf-fig-photo .sf-fig-frame { margin: 0 -16px; border-left: 0; border-right: 0; border-radius: 0; }
+  .sf-fig-cap { font-size: 14px; line-height: 21px; padding-top: 10px; }
+  .sf-fig-credit { font-size: 11.5px; line-height: 16px; }
+}
+
+/* Tables sit on the text measure too */
+#quarto-document-content table.table { max-width: min(100%, 39rem); font-size: 16px; }
