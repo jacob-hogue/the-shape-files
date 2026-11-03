@@ -1,6 +1,0 @@
-# Environment the code was last run in, 2026-11-03 (Python 3.13.17)
-geopandas==1.2.0
-shapely==2.2.0
-numpy==2.5.3
-matplotlib==3.11.2
-PyYAML==6.0.3

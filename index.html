@@ -87,9 +87,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-project','listing-website','listing-format','listing-lang','listing-engines','listing-_quarto-vars','listing-language','listing-draft-mode','listing-title','listing-subtitle','listing-description','listing-date','listing-categories','listing-file-number','listing-hero','listing-id','listing-type','listing-period','listing-topics','listing-prerequisites','listing-related_articles','listing-code','listing-review','listing-bibliography','listing-link-citations','listing-path','listing-outputHref','listing-date-modified','listing-author','listing-filename','listing-file-modified','listing-reading-time','listing-word-count',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
+      valueNames: ['listing-project','listing-website','listing-format','listing-lang','listing-engines','listing-_quarto-vars','listing-language','listing-draft-mode','listing-title','listing-subtitle','listing-description','listing-date','listing-categories','listing-file-number','listing-hero','listing-resources','listing-id','listing-type','listing-period','listing-topics','listing-prerequisites','listing-related_articles','listing-review','listing-bibliography','listing-link-citations','listing-path','listing-outputHref','listing-date-modified','listing-author','listing-filename','listing-file-modified','listing-reading-time','listing-word-count',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
       
-      searchColumns: ["listing-project","listing-website","listing-format","listing-lang","listing-engines","listing-_quarto-vars","listing-language","listing-draft-mode","listing-title","listing-subtitle","listing-description","listing-date","listing-categories","listing-file-number","listing-hero","listing-id","listing-type","listing-period","listing-topics","listing-prerequisites","listing-related_articles","listing-code","listing-review","listing-bibliography","listing-link-citations","listing-path","listing-outputHref","listing-date-modified","listing-author","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
+      searchColumns: ["listing-project","listing-website","listing-format","listing-lang","listing-engines","listing-_quarto-vars","listing-language","listing-draft-mode","listing-title","listing-subtitle","listing-description","listing-date","listing-categories","listing-file-number","listing-hero","listing-resources","listing-id","listing-type","listing-period","listing-topics","listing-prerequisites","listing-related_articles","listing-review","listing-bibliography","listing-link-citations","listing-path","listing-outputHref","listing-date-modified","listing-author","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -133,9 +133,9 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles/tokens.css?v=20261103145110">
-<link rel="stylesheet" href="styles/components.css?v=20261103145110">
-<link rel="stylesheet" href="styles/site.css?v=20261103145110">
+<link rel="stylesheet" href="styles/tokens.css?v=20261103155014">
+<link rel="stylesheet" href="styles/components.css?v=20261103155014">
+<link rel="stylesheet" href="styles/site.css?v=20261103155014">
 </head>
 
 <body class="nav-fixed fullcontent quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
@@ -212,7 +212,7 @@ window.Quarto = {
 <li><a class="sf-files-row" href="./articles/the-map-room/index.html">
 <span class="sf-files-no">File 001</span>
 <span class="sf-files-title">The Map Room: Answering Geographic Questions by Hand</span>
-<span class="sf-files-sub">Before computers, a question like how much good farmland is under forest was answered with two map sheets, a table lit from below and a lot of counting. Every new question meant starting over.</span>
+<span class="sf-files-sub">Before computers, a question like how much good farmland is under forest was answered with two map sheets, a table lit from below, and a lot of counting. Each new question meant new outlines and a new count.</span>
 </a></li>
 
 </ol>
@@ -238,7 +238,7 @@ window.Quarto = {
   var base = nav ? nav.getAttribute("src").replace(/site_libs\/quarto-nav\/quarto-nav\.js.*$/, "") : "";
   if (!document.querySelector(".sf-hero-mount")) return;
   ["react.production.min.js", "react-dom.production.min.js", "three.min.js", "shapefiles.bundle.js", "hero-mount.js"].reduce(function (p, f) {
-    return p.then(function () { return new Promise(function (done) { var e = document.createElement("script"); e.src = base + "assets/js/" + f + "?v=20261103145110"; e.onload = done; e.onerror = done; document.body.appendChild(e); }); });
+    return p.then(function () { return new Promise(function (done) { var e = document.createElement("script"); e.src = base + "assets/js/" + f + "?v=20261103155014"; e.onload = done; e.onerror = done; document.body.appendChild(e); }); });
   }, Promise.resolve());
 })();
 </script>
