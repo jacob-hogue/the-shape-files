@@ -101,9 +101,9 @@ div.csl-indent {
 <style>html{ scroll-behavior: smooth; }</style>
 
 
-<link rel="stylesheet" href="../../styles/tokens.css?v=20261104173658">
-<link rel="stylesheet" href="../../styles/components.css?v=20261104173658">
-<link rel="stylesheet" href="../../styles/site.css?v=20261104173658">
+<link rel="stylesheet" href="../../styles/tokens.css?v=20261104190815">
+<link rel="stylesheet" href="../../styles/components.css?v=20261104190815">
+<link rel="stylesheet" href="../../styles/site.css?v=20261104190815">
 <meta property="og:title" content="The Map Room: Answering Geographic Questions by Hand – The Shape-Files">
 <meta property="og:description" content="How foresters, planners, and land inventories answered map questions by hand, with light tables, planimeters, and dot grids, and why that way of working couldn’t keep up.">
 <meta property="og:image" content="https://jacob-hogue.github.io/the-shape-files/articles/the-map-room/figures/share.png">
@@ -212,7 +212,7 @@ div.csl-indent {
 
 
 <div class="sf-article-path">
-<nav class="sf-prereq sf-prereq-single" aria-label="Reading path">
+<nav class="sf-prereq" aria-label="Reading path">
 <div class="sf-prereq-col">
 <p class="sf-prereq-head">
 Read first
@@ -220,6 +220,16 @@ Read first
 <p class="sf-prereq-none">
 Start here: no prerequisites
 </p>
+</div>
+<div class="sf-prereq-col">
+<p class="sf-prereq-head">
+Leads to
+</p>
+<ul class="sf-prereq-list">
+<li>
+<span class="sf-prereq-id">002</span><a href="../measuring-the-earth/">How Humans Learned to Measure the Earth</a>
+</li>
+</ul>
 </div>
 </nav>
 </div>
@@ -236,7 +246,7 @@ Start here: no prerequisites
 <h2 class="anchored" data-anchor-id="first-make-the-sheets-agree">First, make the sheets agree</h2>
 <p>Two maps can be compared only if they share a scale, the ratio between a distance on the map and the same distance on the ground, and the same sheet edges. In Canada, the standard topographic sheets are drawn at 1:50,000, where 1 cm on the map stands for 500 m on the ground,<span class="citation" data-cites="nrcan_topobasics"><sup><a href="#ref-nrcan_topobasics" role="doc-biblioref">3</a></sup></span> and it takes 13,150 of them to cover the country.<span class="citation" data-cites="lac_canadaatscale"><sup><a href="#ref-lac_canadaatscale" role="doc-biblioref">4</a></sup></span> Maps from different offices didn’t always match, so the first job was often redrawing one to fit the other.</p>
 <p>Even matching sheets didn’t stay matched, because paper swells in damp air and shrinks in dry air. As early as 1928, the US Geological Survey (USGS) told its field surveyors to fix their sheets to the plane table, a drawing board on a tripod, “by brass thumbscrews or tacks, to reduce to a minimum the expansion or contraction caused by changes in climatic conditions.”<span class="citation" data-cites="beaman1928"><sup><a href="#ref-beaman1928" role="doc-biblioref">5</a></sup></span> Printers fought the same problem. Erwin Raisz, a cartographer at Harvard, explained in his textbook that each color of a map was drawn on its own sheet, “usually made on vellum because it does not change its shape and size with humidity.” Each drawing, he added, “must have register marks for perfect overprint,” so that every color printed in exactly the right place.<span class="citation" data-cites="raisz1948"><sup><a href="#ref-raisz1948" role="doc-biblioref">6</a></sup></span></p>
-<p>Lining sheets up this way is called registration. Laying many sheets side by side raised a second issue. The same USGS instructions noted that neighboring sheets would in theory leave “small gores,” thin gaps, between rows laid edge to edge.<span class="citation" data-cites="beaman1928"><sup><a href="#ref-beaman1928" role="doc-biblioref">5</a></sup></span> Each sheet uses a map projection, a way of drawing part of the curved Earth on a flat surface, so neighboring sheets can never fit together perfectly. The instructions said the paper’s stretch was the bigger of the two errors.</p>
+<p>Lining sheets up this way is called registration. Laying many sheets side by side raised a second issue. The same USGS instructions noted that neighboring sheets would in theory leave “small gores,” thin gaps, between rows laid edge to edge.<span class="citation" data-cites="beaman1928"><sup><a href="#ref-beaman1928" role="doc-biblioref">5</a></sup></span> Each sheet uses a map projection, a way of drawing part of the curved Earth on a flat surface, so neighboring sheets can never fit together perfectly. The instructions said the paper’s stretch was the bigger of the two errors. The curve itself is the subject of <a href="../measuring-the-earth/">File 002, <em>How Humans Learned to Measure the Earth</em></a>.</p>
 </section>
 <section id="then-lay-one-over-the-other" class="level2">
 <h2 class="anchored" data-anchor-id="then-lay-one-over-the-other">Then, lay one over the other</h2>
@@ -552,7 +562,7 @@ z
   var base = nav ? nav.getAttribute("src").replace(/site_libs\/quarto-nav\/quarto-nav\.js.*$/, "") : "";
   if (!document.querySelector(".sf-hero-mount")) return;
   ["react.production.min.js", "react-dom.production.min.js", "three.min.js", "shapefiles.bundle.js", "hero-mount.js"].reduce(function (p, f) {
-    return p.then(function () { return new Promise(function (done) { var e = document.createElement("script"); e.src = base + "assets/js/" + f + "?v=20261104173658"; e.onload = done; e.onerror = done; document.body.appendChild(e); }); });
+    return p.then(function () { return new Promise(function (done) { var e = document.createElement("script"); e.src = base + "assets/js/" + f + "?v=20261104190815"; e.onload = done; e.onerror = done; document.body.appendChild(e); }); });
   }, Promise.resolve());
 })();
 </script>

@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.11.9">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Jacob Hogue">
+<meta name="dcterms.date" content="2026-11-04">
+<meta name="description" content="From Eratosthenes’ shadows to Snellius’ church towers, a frozen river in Lapland, the Andes, and the satellites behind WGS 84: how measuring one degree of latitude revealed the Earth’s size and shape.">
+
+<title>How Humans Learned to Measure the Earth – The Shape-Files</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../assets/img/file-mark-favicon.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7b1528b1cba7e9f63f59baa7408a6f56.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-260992445ddb6850cf12eee7a5778700.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="../../styles/tokens.css?v=20261104190815">
+<link rel="stylesheet" href="../../styles/components.css?v=20261104190815">
+<link rel="stylesheet" href="../../styles/site.css?v=20261104190815">
+<meta property="og:title" content="How Humans Learned to Measure the Earth – The Shape-Files">
+<meta property="og:description" content="From Eratosthenes’ shadows to Snellius’ church towers, a frozen river in Lapland, the Andes, and the satellites behind WGS 84: how measuring one degree of latitude revealed the Earth’s size and shape.">
+<meta property="og:image" content="https://jacob-hogue.github.io/the-shape-files/articles/measuring-the-earth/figures/share.png">
+<meta property="og:site_name" content="The Shape-Files">
+<meta property="og:image:height" content="630">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:alt" content="The Shape-Files, File 002: How Humans Learned to Measure the Earth. A reference ellipsoid, a sheet of survey triangles, and an arc floating above a city grid.">
+<meta name="twitter:title" content="How Humans Learned to Measure the Earth – The Shape-Files">
+<meta name="twitter:description" content="From Eratosthenes’ shadows to Snellius’ church towers, a frozen river in Lapland, the Andes, and the satellites behind WGS 84: how measuring one degree of latitude revealed the Earth’s size and shape.">
+<meta name="twitter:image" content="https://jacob-hogue.github.io/the-shape-files/articles/measuring-the-earth/figures/share.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image:alt" content="The Shape-Files, File 002: How Humans Learned to Measure the Earth. A reference ellipsoid, a sheet of survey triangles, and an arc floating above a city grid.">
+</head>
+
+<body class="nav-fixed quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark" aria-label="Site">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../assets/img/file-mark-nav.svg" alt="The Shape-Files file mark" class="navbar-logo light-content">
+    <img src="../../assets/img/file-mark-nav.svg" alt="The Shape-Files file mark" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">The Shape-Files</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html#files"> 
+<span class="menu-text">Files</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+            <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">In this article</h2>
+   
+  <ul class="collapse">
+  <li><a href="#eratosthenes-needed-a-shadow-and-a-distance" id="toc-eratosthenes-needed-a-shadow-and-a-distance" class="nav-link active" data-scroll-target="#eratosthenes-needed-a-shadow-and-a-distance">Eratosthenes needed a shadow and a distance</a></li>
+  <li><a href="#triangles-made-the-distance-measurable" id="toc-triangles-made-the-distance-measurable" class="nav-link" data-scroll-target="#triangles-made-the-distance-measurable">Triangles made the distance measurable</a></li>
+  <li><a href="#a-short-pendulum-raised-a-harder-question" id="toc-a-short-pendulum-raised-a-harder-question" class="nav-link" data-scroll-target="#a-short-pendulum-raised-a-harder-question">A short pendulum raised a harder question</a></li>
+  <li><a href="#lapland-and-peru-showed-which-way-the-earth-is-squashed" id="toc-lapland-and-peru-showed-which-way-the-earth-is-squashed" class="nav-link" data-scroll-target="#lapland-and-peru-showed-which-way-the-earth-is-squashed">Lapland and Peru showed which way the Earth is squashed</a></li>
+  <li><a href="#it-took-satellites-to-measure-how-much" id="toc-it-took-satellites-to-measure-how-much" class="nav-link" data-scroll-target="#it-took-satellites-to-measure-how-much">It took satellites to measure how much</a></li>
+  <li><a href="#every-coordinate-still-rests-on-those-two-numbers" id="toc-every-coordinate-still-rests-on-those-two-numbers" class="nav-link" data-scroll-target="#every-coordinate-still-rests-on-those-two-numbers">Every coordinate still rests on those two numbers</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content" tabindex="-1">
+
+<div class="sf-hero-mount sf-hero-bleed column-screen" style="--sf-hero-h: 360px" data-height="360" data-seed="1617" data-shift="0.2" data-title="Banner: an ellipsoid, a sheet of survey triangles, and a measured arc floating above a city grid; the ellipsoid is highlighted" data-stack="=ellipsoid, WGS 84, graticule, subject; =triangles, survey, polygons; =one degree, arc, lines"></div>
+<script>
+/* Lift the banner out of the article grid so it spans the page under the navbar and stays clear of the table of contents. */
+(function () { var h = document.currentScript.previousElementSibling, c = document.getElementById("quarto-content"); if (h && c) { h.classList.remove("column-screen"); c.parentNode.insertBefore(h, c); } })();
+</script>
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<p class="sf-file-no">File 002</p>
+<h1 class="title">How Humans Learned to Measure the Earth</h1>
+<p class="subtitle lead">From shadows in Egypt to a frozen river in Lapland and satellites in orbit, how people measured one degree of latitude until they knew the Earth’s size and shape.</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">History</div>
+    <div class="quarto-category">Geodesy</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    From Eratosthenes’ shadows to Snellius’ church towers, a frozen river in Lapland, the Andes, and the satellites behind WGS 84: how measuring one degree of latitude revealed the Earth’s size and shape.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta sf-byline">
+    <p class="sf-byline-author">By <a href="https://jacob-hogue.github.io">Jacob Hogue</a> </p>
+      <p class="sf-byline-date"><span class="visually-hidden">Published </span>November 4, 2026</p>
+        <p class="sf-byline-time">12 min read</p>
+  </div>
+
+
+
+</header>
+
+
+
+<div class="sf-article-path">
+<nav class="sf-prereq sf-prereq-single" aria-label="Reading path">
+<div class="sf-prereq-col">
+<p class="sf-prereq-head">
+Read first
+</p>
+<ul class="sf-prereq-list">
+<li>
+<span class="sf-prereq-id">001</span><a href="../the-map-room/">The Map Room: Answering Geographic Questions by Hand</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+<p>Open a map on your phone, and a blue dot finds you. The phone works out your latitude and longitude on a model of the Earth called WGS 84, the World Geodetic System 1984 used by the Global Positioning System (GPS).<span class="citation" data-cites="nga2012"><sup><a href="#ref-nga2012" role="doc-biblioref">1</a></sup></span> The model is a slightly squashed ball called an ellipsoid. From its center to the equator is 6,378,137 meters, and from its center to either pole is about 21 kilometers less.<span class="citation" data-cites="nima2000"><sup><a href="#ref-nima2000" role="doc-biblioref">2</a></sup></span> The ellipsoid is defined by two numbers, one for the Earth’s size and one for its squash. The phone needs only a few seconds to find you, but working out those two numbers took people about 2,000 years.</p>
+<p>In <a href="../the-map-room/">File 001, <em>The Map Room</em></a>, the Earth’s curve showed up as the thin gaps flat map sheets would, in theory, leave when laid edge to edge. How curved it is, and in what shape, is a much older question. Latitude was the easier part. North of the equator, the height of the celestial pole, the point in the sky that the stars turn around, tells you roughly how far north you are. The hard part was turning degrees in the sky into distance on the ground. People could measure one degree of latitude, which is the distance you travel north before the stars shift by one degree. Comparing degrees measured far apart is how they learned the Earth’s shape.</p>
+<section id="eratosthenes-needed-a-shadow-and-a-distance" class="level2">
+<h2 class="anchored" data-anchor-id="eratosthenes-needed-a-shadow-and-a-distance">Eratosthenes needed a shadow and a distance</h2>
+<p>In the third century BC, the Greek scholar Eratosthenes started from two Egyptian cities he took to lie on the same north–south line. At noon on the summer solstice, sundials at Syene, far up the Nile, cast no shadow, because the sun stood straight overhead. At Alexandria the shadow in a bowl-shaped sundial covered 1/50 of a full circle. He used a distance of 5,000 stadia between the cities (a stadion was an ancient Greek unit of distance) and concluded that the whole Earth was 50 times that distance, or 250,000 stadia around.<span class="citation" data-cites="cleomedes_ziegler1891 heath1921"><sup><a href="#ref-cleomedes_ziegler1891" role="doc-biblioref">3</a>,<a href="#ref-heath1921" role="doc-biblioref">4</a></sup></span></p>
+<p>Sunlight arrives in parallel rays, so the slant of the shadow at Alexandria equals the angle between the two cities at the Earth’s center (Fig. 1). If that angle is 1/50 of a circle, the distance between the cities is 1/50 of the way around. This method of finding the Earth’s size is called arc measurement. Every survey in this story uses it.</p>
+<figure class="sf-fig sf-fig-drawing figure" aria-labelledby="fig-1-cap">
+<div class="sf-fig-frame"><div class="sf-fig-body">
+<svg viewbox="0 0 640 400" width="100%" role="img" aria-labelledby="fig-1-svg-title" xmlns="http://www.w3.org/2000/svg">
+<title id="fig-1-svg-title">
+The top of a curved Earth under vertical rays of sunlight. An upright pin at Syene lines up with a ray; a pin at Alexandria leans away from the rays. One arc marks the angle between a ray and the leaning pin, and a matching arc marks the angle between the two cities’ radii, with 5,000 stadia labeled along the surface between them
+</title>
+<style>.earth{fill:var(--paper-sunk);stroke:var(--ink-faint);stroke-width:1.2}.ray{stroke:var(--amber-ink, var(--ink-muted));stroke-width:1.4;opacity:.8}.pin{stroke:var(--ink);stroke-width:3;stroke-linecap:round}.rad{stroke:var(--ink-muted);stroke-width:1.2;stroke-dasharray:5 4}.arc{fill:none;stroke:var(--magenta);stroke-width:4;stroke-linecap:round}.ang{fill:none;stroke:var(--magenta);stroke-width:2}.shadowray{stroke:var(--magenta);stroke-width:1.6;stroke-dasharray:4 3}.lab{font-family:var(--font-display);font-size:14px;fill:var(--ink)}.labm{font-family:var(--font-display);font-size:14px;font-weight:700;fill:var(--magenta-ink, var(--magenta))}.note{font-family:var(--font-display);font-size:12px;fill:var(--ink-muted)}.narrow{display:none}@media (max-width:600px){.lab,.labm{font-size:21px}.note{font-size:17px}.wide{display:none}.narrow{display:inline}}</style>
+<circle class="earth" cx="340" cy="500" r="310"></circle> <line class="ray" x1="157.0" y1="76" x2="157.0" y2="249.8"></line> <line class="ray" x1="250.0" y1="76" x2="250.0" y2="203.4"></line> <line class="ray" x1="340.0" y1="76" x2="340.0" y2="190.0"></line> <line class="ray" x1="545.0" y1="76" x2="545.0" y2="267.5"></line> <line class="ray" x1="615.0" y1="76" x2="615.0" y2="356.9"></line> <text class="lab" x="628" y="28" text-anchor="end">Sunlight at noon,</text><text class="lab" x="628" y="58" text-anchor="end">in parallel rays</text> <line class="rad" x1="340" y1="500" x2="340.0" y2="134.0"></line> <line class="rad" x1="340" y1="500" x2="157.0" y2="183.0"></line> <path class="arc" d="M340.0,190.0 A310,310 0 0 0 185.0,231.5"></path> <line class="pin" x1="340.0" y1="190.0" x2="340.0" y2="134.0"></line> <line class="pin" x1="185.0" y1="231.5" x2="157.0" y2="183.0"></line> <path class="ang" d="M157.0,223.0 A40,40 0 0 0 177.0,217.7"></path> <text class="lab" x="352.0" y="128.0">Syene: no shadow</text> <text class="lab" x="148.0" y="214" text-anchor="end">Alexandria</text> <text class="labm wide" x="148.0" y="150" text-anchor="end">Shadow angle:</text> <text class="labm wide" x="148.0" y="172" text-anchor="end">1/50 of a circle</text> <text class="labm narrow" x="24" y="28">Shadow angle at</text> <text class="labm narrow" x="24" y="58">Alexandria: 1/50 of a circle</text> <text class="labm wide" x="265" y="241" text-anchor="middle">5,000 stadia</text> <text class="labm narrow" x="271" y="258" text-anchor="middle">5,000 stadia</text> <path class="ang" d="M340.0,340.0 A150,150 0 0 0 260.0,361.4"></path> <text class="labm" x="352.0" y="370.0">Same angle at the center</text>
+</svg>
+</div></div>
+<figcaption class="sf-fig-cap" id="fig-1-cap">
+<p><span class="sf-fig-label">Fig. 1</span>Eratosthenes’ method, as the only detailed ancient account describes it. Parallel sunlight casts no shadow at Syene and a slanting one at Alexandria, and the slant equals the angle between the two cities at the Earth’s center. The angle is drawn far larger than the account’s 1/50 of a circle (7.2°) so it can be seen.<span class="sf-fig-credit">Drawing: The Shape-Files · illustration, not to scale</span></p>
+</figcaption>
+</figure>
+<p>The famous well at Syene, lit to the bottom by the noon sun, comes from other ancient writers and isn’t part of his method.<span class="citation" data-cites="strabo_jones pliny_nh2"><sup><a href="#ref-strabo_jones" role="doc-biblioref">5</a>,<a href="#ref-pliny_nh2" role="doc-biblioref">6</a></sup></span> The only detailed account of the method, written two centuries or more later by the Greek writer Cleomedes, treats the 5,000 stadia as an assumption, and nobody knows how long Eratosthenes’ stadion was. Depending on which length you assume, his Earth comes out slightly too small or about 16% too large.<span class="citation" data-cites="shcheglov2018"><sup><a href="#ref-shcheglov2018" role="doc-biblioref">7</a></sup></span> The weak link was the distance.</p>
+</section>
+<section id="triangles-made-the-distance-measurable" class="level2">
+<h2 class="anchored" data-anchor-id="triangles-made-the-distance-measurable">Triangles made the distance measurable</h2>
+<p>The distance remained the weak link for centuries. In the 1520s Jean Fernel tried a different approach. He went north from Paris until the celestial pole stood a degree higher, then rode home in a coach, counted the turns of its wheel, and subtracted a guess for the road’s bends and hills. His answer came so close that a later surveyor concluded Fernel’s guess for the road must have offset an error elsewhere in his work.<span class="citation" data-cites="picard1671"><sup><a href="#ref-picard1671" role="doc-biblioref">8</a></sup></span></p>
+<p>In 1615 the Dutch mathematician Willebrord Snellius found a way around the problem. He measured one short base on the ground, about 328 meters, and took everything else as angles between church towers. Once one side and the angles of a triangle are known, its other sides can be calculated, and one of those sides becomes the starting side of the next triangle. Through a chain of such triangles, Snellius stretched his 328 meters into the 130 kilometers between Alkmaar and Bergen op Zoom. This was the first arc measurement made by triangulation.<span class="citation" data-cites="haasbroek1968"><sup><a href="#ref-haasbroek1968" role="doc-biblioref">9</a></sup></span></p>
+<p>His triangles were sound, but his latitude measurements, read from the sky with open sights instead of telescopes, were not, and his degree came out 3.5% short.<span class="citation" data-cites="snellius1617"><sup><a href="#ref-snellius1617" role="doc-biblioref">10</a></sup></span> One of his towers was hardly needed: Gouda’s tower already anchored that part of the network. Snellius added nearby Oudewater anyway, and the geodesist who recomputed the survey concludes that he wanted to visit his widowed mother there.<span class="citation" data-cites="haasbroek1968"><sup><a href="#ref-haasbroek1968" role="doc-biblioref">9</a></sup></span></p>
+<p>Half a century later, Jean Picard, an astronomer of the Académie des sciences in Paris, fixed the weak point by putting telescopes with crosshairs on his instruments, both for the angles between stations and for the stars. South of Paris, he measured an 11-kilometer base along a straight paved road, using rods made from wooden pike shafts. From there he extended the measurement north toward Amiens through 13 triangles (Fig. 2).<span class="citation" data-cites="picard1671"><sup><a href="#ref-picard1671" role="doc-biblioref">8</a></sup></span></p>
+<figure class="sf-fig sf-fig-photo figure" aria-labelledby="fig-2-cap">
+<a class="sf-fig-frame sf-zoom" href="figures/picard-1740-base-and-paris.jpg" aria-label="Enlarge figure 2"><img src="figures/picard-1740-base-and-paris.jpg" width="1345" height="975" loading="lazy" alt="An engraved diagram of survey triangles drawn with fine lines, with stations labeled in italic script: Montmartre, Notre-Dame de Paris, the Observatory, Villejuif, Juvisy, Le Griffon, Brie-Comte-Robert, Montlhéry, and Malvoisine." class="figure-img"></a>
+<figcaption class="sf-fig-cap" id="fig-2-cap"><span class="sf-fig-label">Fig. 2</span>The southern end of Picard’s chain of triangles, from a 1740 reprint of his survey. The base runs from A (Villejuif) to B (Juvisy), and the chain continues north beyond this detail to Amiens.<span class="sf-fig-credit">Map: Dheulland after Jean Picard, 1740 · <a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://archive.org/details/picard-1740-degre-du-meridien-entre-paris-et-amie">Internet Archive</a> · cropped to a detail</span></figcaption>
+</figure>
+<p>Picard’s degree came to 57,060 toises. A toise was a French measure of about 1.95 meters, so his degree was about 111.2 kilometers, which is very close to the true length there. Later checks found errors in his work that, as a 19th-century historian put it, “by accident almost balanced each other,” so the closeness was partly luck.<span class="citation" data-cites="todhunter1873"><sup><a href="#ref-todhunter1873" role="doc-biblioref">11</a></sup></span></p>
+</section>
+<section id="a-short-pendulum-raised-a-harder-question" class="level2">
+<h2 class="anchored" data-anchor-id="a-short-pendulum-raised-a-harder-question">A short pendulum raised a harder question</h2>
+<p>One degree, however well measured, can’t reveal a shape. On a perfect sphere every degree is the same length, so the test is to compare degrees measured far apart. The first hint that the Earth isn’t a sphere came from a pendulum. A pendulum’s swing depends on gravity. If it is adjusted to beat seconds, its length gives a way to compare the strength of gravity in different places. In 1672 the astronomer Jean Richer, sent to Cayenne in South America, found that his seconds pendulum had to be made shorter there than in Paris to keep time.<span class="citation" data-cites="richer1679"><sup><a href="#ref-richer1679" role="doc-biblioref">12</a></sup></span> Near the equator, gravity pulled a little less.</p>
+<p>Isaac Newton explained why in his <em>Principia</em> of 1687. The Earth’s rotation slightly reduces the apparent pull of gravity at the equator. It also makes the Earth bulge there, putting a pendulum farther from the center. Newton estimated that the poles sit about 1/230 of the Earth’s radius closer to the center than the equator does. That ratio, the difference between the two radii as a fraction of the larger, is called the flattening.<span class="citation" data-cites="newton1687 newton1729"><sup><a href="#ref-newton1687" role="doc-biblioref">13</a>,<a href="#ref-newton1729" role="doc-biblioref">14</a></sup></span></p>
+<p>Newton’s bulge could be tested on the ground. Walk north and the ground curves under you, so straight down, the line a plumb bob hangs along, tilts against the stars. One degree of latitude is how far you walk for it to tilt by one degree. Where the Earth is flatter, the ground curves more gently, so you walk farther for the same tilt. On a flattened Earth, degrees get longer toward the poles.<span class="citation" data-cites="maupertuis1738en"><sup><a href="#ref-maupertuis1738en" role="doc-biblioref">15</a></sup></span></p>
+<p>The Paris Observatory’s own survey said the opposite. By 1718 Jacques Cassini and his father had run a chain of triangles through Paris from Dunkirk to Collioure, near the Spanish border. Their arc was six times longer than Picard’s, and it showed degrees shrinking northward.<span class="citation" data-cites="cassini1720"><sup><a href="#ref-cassini1720" role="doc-biblioref">16</a></sup></span> By the rule above, degrees that shrink toward the pole mean an Earth stretched toward the poles, like an egg standing on end. Now there were two answers. Newton had a theory and a pendulum, and the Cassinis had a survey across the whole of France.</p>
+<p>Neither side could be sure. From one degree to the next, the Cassinis’ degrees changed by only about 60 meters. An error of just 2 arcseconds in a star sighting could produce a change that large, and 2 arcseconds is about the width of a quarter seen from 2.5 kilometers.<span class="citation" data-cites="cassinidethury1744"><sup><a href="#ref-cassinidethury1744" role="doc-biblioref">17</a></sup></span></p>
+</section>
+<section id="lapland-and-peru-showed-which-way-the-earth-is-squashed" class="level2">
+<h2 class="anchored" data-anchor-id="lapland-and-peru-showed-which-way-the-earth-is-squashed">Lapland and Peru showed which way the Earth is squashed</h2>
+<p>The instruments of 1718 couldn’t settle a change that small. The Académie’s answer was two arc measurements as far apart as it could reach. If Newton was right, a degree near the Arctic Circle would be longer than one at the equator, and if the Cassinis were right, it would be shorter. In 1735 one party sailed for the equator, near Quito, in what is now Ecuador, which the French then counted as part of Peru.<span class="citation" data-cites="lacondamine1751journal lacondamine1746"><sup><a href="#ref-lacondamine1751journal" role="doc-biblioref">18</a>,<a href="#ref-lacondamine1746" role="doc-biblioref">19</a></sup></span> In 1736 another went to Lapland, at the Arctic Circle, then part of Sweden.</p>
+<p>The Arctic party, led by Pierre-Louis Moreau de Maupertuis, set its triangles on hilltops along the Torne River valley and measured its base on the river itself once it froze, starting on the winter solstice. Two teams measured the same 14 kilometers of ice and differed by about 11 centimeters. It was cold enough that even brandy, the only drink they could keep liquid, left their lips and tongues stuck to the cup.<span class="citation" data-cites="maupertuis1738 maupertuis1738en"><sup><a href="#ref-maupertuis1738en" role="doc-biblioref">15</a>,<a href="#ref-maupertuis1738" role="doc-biblioref">20</a></sup></span></p>
+<p>The result went Newton’s way: Lapland’s degree came out longer than any degree measured in France. The Cassinis’ supporters in Paris resisted it.<span class="citation" data-cites="voltaire_moland34"><sup><a href="#ref-voltaire_moland34" role="doc-biblioref">21</a></sup></span> Maupertuis was portrayed in Lapland furs with one hand pressing down on a globe (Fig. 3), and Voltaire, then his friend, took to calling him a flattener. In one letter Voltaire addressed him as “my dear flattener of worlds and of Cassinis.”<span class="citation" data-cites="voltaire_moland36"><sup><a href="#ref-voltaire_moland36" role="doc-biblioref">22</a></sup></span></p>
+<figure class="sf-fig sf-fig-photo figure" aria-labelledby="fig-3-cap">
+<a class="sf-fig-frame sf-zoom" href="figures/wellcome-1741-maupertuis.jpg" aria-label="Enlarge figure 3"><img src="figures/wellcome-1741-maupertuis.jpg" width="1400" height="2030" loading="lazy" alt="An engraved portrait of a man in a fur hat and fur-trimmed coat, seated by a window and pointing outward with one hand while the other rests on a globe; below, a small scene of a reindeer pulling a sled." class="figure-img"></a>
+<figcaption class="sf-fig-cap" id="fig-3-cap"><span class="sf-fig-label">Fig. 3</span>Maupertuis in Lapland furs, his hand on a globe, in a 1741 engraving after a portrait by Robert Levrac-Tournières. The verse on the ledge is by Voltaire.<span class="sf-fig-credit">Engraving: Jean Daullé and Johann Georg Wille, 1741 · <a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://wellcomecollection.org/works/gq5pnpvj">Wellcome Collection</a></span></figcaption>
+</figure>
+<p>The Peru party took far longer. It measured a base on the high plain of Yaruquí (Fig. 4) and carried a chain of more than 30 triangles south through the Andes.<span class="citation" data-cites="lacondamine1751mesure"><sup><a href="#ref-lacondamine1751mesure" role="doc-biblioref">23</a></sup></span> At one festival, young clowns who had watched the astronomers at work mimicked them in the arena with quadrants of wood and painted paper, and Charles-Marie de La Condamine, one of the party’s three French academicians, “saw nothing more amusing during the ten years of the voyage.” In August 1739 the party’s surgeon was attacked by a mob at a bullfight in Cuenca.<span class="citation" data-cites="lacondamine1751journal"><sup><a href="#ref-lacondamine1751journal" role="doc-biblioref">18</a></sup></span> La Condamine wrote that the surgeon “died four days later of his wounds, in my bed.”<span class="citation" data-cites="lacondamine1746"><sup><a href="#ref-lacondamine1746" role="doc-biblioref">19</a></sup></span></p>
+<figure class="sf-fig sf-fig-photo figure" aria-labelledby="fig-4-cap">
+<a class="sf-fig-frame sf-zoom" href="figures/lacondamine-1751-yaruqui-base.jpg" aria-label="Enlarge figure 4"><img src="figures/lacondamine-1751-yaruqui-base.jpg" width="1800" height="481" loading="lazy" alt="A wide engraved panorama of a plain with farm buildings and trees in the foreground and a long line of mountains and volcanoes on the horizon, under an engraved title." class="figure-img"></a>
+<figcaption class="sf-fig-cap" id="fig-4-cap"><span class="sf-fig-label">Fig. 4</span>The plain of Yaruquí, near Quito, where the Peru party measured its base, with the Andes behind it, from La Condamine’s account of 1751. The numbers along the horizon belong to a key below the view, not shown here.<span class="sf-fig-credit">Engraving: from La Condamine’s <em>Journal du voyage</em>, 1751, Universidad de Sevilla · <a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://archive.org/details/A255103">Internet Archive</a> · cropped to the view</span></figcaption>
+</figure>
+<p>Corrected to sea level, Peru’s degree came within about 34 meters of today’s value, and it was nearly a kilometer shorter than Lapland’s.<span class="citation" data-cites="lacondamine1751mesure"><sup><a href="#ref-lacondamine1751mesure" role="doc-biblioref">23</a></sup></span> France, meanwhile, had reversed itself. Jacques Cassini’s son, César-François Cassini de Thury, remeasured the French meridian from 1739, and in 1744 he concluded that the degrees shrink toward the equator, “and consequently that the figure of the Earth is flattened.”<span class="citation" data-cites="cassinidethury1744"><sup><a href="#ref-cassinidethury1744" role="doc-biblioref">17</a></sup></span> Newton had won the argument over the direction. The amount was another matter. Depending on which degrees they compared, estimates of the Earth’s flattening ranged from about twice the true value to nearly the right answer (Fig. 5).<span class="citation" data-cites="cassinidethury1744 lacondamine1751mesure"><sup><a href="#ref-cassinidethury1744" role="doc-biblioref">17</a>,<a href="#ref-lacondamine1751mesure" role="doc-biblioref">23</a></sup></span></p>
+<figure class="sf-fig sf-fig-drawing figure" aria-labelledby="fig-5-cap">
+<div class="sf-fig-frame"><div class="sf-fig-body">
+<svg viewbox="0 0 640 400" width="100%" role="img" aria-labelledby="fig-5-svg-title" xmlns="http://www.w3.org/2000/svg">
+<title id="fig-5-svg-title">
+Length of one degree of latitude by latitude: the WGS 84 curve rises from 110.57 km at the equator to 111.69 km at the poles. Peru’s degree and the 1803 Lapland remeasurement sit on the curve; Lapland’s 1737 degree sits well above it; Cassini’s two French degrees slope downward, the wrong way; Picard’s sits on the curve; Snellius’ falls below the scale
+</title>
+<style>.ax{stroke:var(--line-strong, var(--ink-faint));stroke-width:1}.grid{stroke:var(--line);stroke-width:1}.tick{font-family:var(--font-mono);font-size:11px;fill:var(--ink-muted)}.lab{font-family:var(--font-display);font-size:12.5px;fill:var(--ink)}.axl{font-family:var(--font-display);font-size:12px;fill:var(--ink-muted)}.curve{fill:none;stroke:var(--magenta);stroke-width:2.5}.curvelab{font-family:var(--font-display);font-size:12.5px;font-weight:700;fill:var(--magenta-ink, var(--magenta))}.pt{fill:var(--ink);stroke:var(--paper);stroke-width:1.5}.pair{stroke:var(--ink-muted);stroke-width:1.2;stroke-dasharray:3 3}.arrow{stroke:var(--ink-muted);stroke-width:1.2;fill:none}.narrow{display:none}@media (max-width:600px){.wide{display:none}.narrow{display:inline}.lab,.curvelab{font-size:20px}.tick{font-size:16px}.axl{font-size:17px}.pt{r:7px}}</style>
+<line class="grid" x1="64" x2="616" y1="326.4" y2="326.4"></line> <text class="tick" x="56" y="330.4" text-anchor="end">110.4</text> <line class="grid" x1="64" x2="616" y1="256.2" y2="256.2"></line> <text class="tick" x="56" y="260.2" text-anchor="end">110.8</text> <line class="grid" x1="64" x2="616" y1="186.0" y2="186.0"></line> <text class="tick" x="56" y="190.0" text-anchor="end">111.2</text> <line class="grid" x1="64" x2="616" y1="115.8" y2="115.8"></line> <text class="tick" x="56" y="119.8" text-anchor="end">111.6</text> <line class="grid" x1="64" x2="616" y1="45.6" y2="45.6"></line> <text class="tick" x="56" y="49.6" text-anchor="end">112.0</text> <line class="ax" x1="64.0" x2="64.0" y1="344" y2="349"></line> <text class="tick" x="64.0" y="363" text-anchor="middle">0°</text> <line class="ax" x1="156.0" x2="156.0" y1="344" y2="349"></line> <text class="tick" x="156.0" y="363" text-anchor="middle">15°</text> <line class="ax" x1="248.0" x2="248.0" y1="344" y2="349"></line> <text class="tick" x="248.0" y="363" text-anchor="middle">30°</text> <line class="ax" x1="340.0" x2="340.0" y1="344" y2="349"></line> <text class="tick" x="340.0" y="363" text-anchor="middle">45°</text> <line class="ax" x1="432.0" x2="432.0" y1="344" y2="349"></line> <text class="tick" x="432.0" y="363" text-anchor="middle">60°</text> <line class="ax" x1="524.0" x2="524.0" y1="344" y2="349"></line> <text class="tick" x="524.0" y="363" text-anchor="middle">75°</text> <line class="ax" x1="616.0" x2="616.0" y1="344" y2="349"></line> <text class="tick" x="616.0" y="363" text-anchor="middle">90°</text> <line class="ax" x1="64" x2="616" y1="344" y2="344"></line> <text class="axl" x="340" y="390" text-anchor="middle">Latitude (degrees north or south of the equator)</text> <text class="axl wide" x="16" y="186" text-anchor="middle" transform="rotate(-90 16 186)">Kilometers in one degree</text> <polyline class="curve" points="64.0,295.8 70.1,295.8 76.3,295.6 82.4,295.3 88.5,294.9 94.7,294.4 100.8,293.7 106.9,292.9 113.1,292.1 119.2,291.1 125.3,290.0 131.5,288.7 137.6,287.4 143.7,286.0 149.9,284.4 156.0,282.8 162.1,281.0 168.3,279.2 174.4,277.2 180.5,275.2 186.7,273.0 192.8,270.8 198.9,268.5 205.1,266.0 211.2,263.6 217.3,261.0 223.5,258.3 229.6,255.6 235.7,252.8 241.9,249.9 248.0,247.0 254.1,244.0 260.3,241.0 266.4,237.9 272.5,234.7 278.7,231.5 284.8,228.3 290.9,225.0 297.1,221.7 303.2,218.4 309.3,215.0 315.5,211.6 321.6,208.2 327.7,204.8 333.9,201.4 340.0,198.0 346.1,194.5 352.3,191.1 358.4,187.7 364.5,184.3 370.7,180.9 376.8,177.5 382.9,174.2 389.1,170.9 395.2,167.6 401.3,164.3 407.5,161.1 413.6,157.9 419.7,154.8 425.9,151.7 432.0,148.7 438.1,145.8 444.3,142.9 450.4,140.1 456.5,137.3 462.7,134.6 468.8,132.0 474.9,129.5 481.1,127.1 487.2,124.7 493.3,122.4 499.5,120.3 505.6,118.2 511.7,116.2 517.9,114.3 524.0,112.6 530.1,110.9 536.3,109.3 542.4,107.8 548.5,106.5 554.7,105.3 560.8,104.1 566.9,103.1 573.1,102.2 579.2,101.4 585.3,100.8 591.5,100.2 597.6,99.8 603.7,99.5 609.9,99.3 616.0,99.3"></polyline> <text class="curvelab" x="536.3" y="100.3" text-anchor="middle">WGS 84</text> <line class="pair" x1="344.2" y1="171.2" x2="370.3" y2="218.1"></line> <circle class="pt" cx="64.0" cy="290.0" r="5"></circle> <text class="lab wide" x="74.0" y="280.0" text-anchor="start">Peru, 1735–44</text> <text class="lab narrow" x="76.0" y="278.0" text-anchor="start">Peru</text> <circle class="pt" cx="344.2" cy="171.2" r="5"></circle> <text class="lab wide" x="334.2" y="161.2" text-anchor="end">Cassini, south of Paris</text> <text class="lab narrow" x="332.2" y="159.2" text-anchor="end">Cassini S.</text> <circle class="pt" cx="370.3" cy="218.1" r="5"></circle> <text class="lab wide" x="380.3" y="234.1" text-anchor="start">Cassini, north of Paris</text> <text class="lab narrow" x="382.3" y="240.1" text-anchor="start">Cassini N.</text> <circle class="pt" cx="365.3" cy="183.9" r="5"></circle> <text class="lab wide" x="377.3" y="185.9" text-anchor="start">Picard, 1669–70</text> <text class="lab narrow" x="379.3" y="187.9" text-anchor="start">Picard</text> <circle class="pt" cx="470.8" cy="54.6" r="5"></circle> <text class="lab wide" x="460.8" y="58.6" text-anchor="end">Lapland, 1736–37</text> <text class="lab narrow" x="458.8" y="61.6" text-anchor="end">Lapland, 1737</text> <circle class="pt" cx="470.9" cy="137.3" r="5"></circle> <text class="lab wide" x="480.9" y="154.3" text-anchor="start">Remeasured, 1801–03</text> <text class="lab narrow" x="480.9" y="161.3" text-anchor="start">Lapland, 1803</text> <path class="arrow" d="M383.3,312.0 L383.3,338.0 M379.3,332.0 L383.3,338.0 L387.3,332.0"></path> <text class="lab wide" x="391.3" y="326.0">Snellius, 1615: 107.4 km, off the scale</text> <text class="lab narrow" x="391.3" y="326.0">Snellius: 107.4 km</text>
+</svg>
+</div></div>
+<figcaption class="sf-fig-cap" id="fig-5-cap">
+<p><span class="sf-fig-label">Fig. 5</span>One degree of latitude in kilometers, as each survey measured it, against today’s WGS 84 value. Degrees do lengthen toward the poles. Cassini’s two French degrees slope the wrong way, Lapland’s degree of 1736–37 sits far above the curve, and Peru and the 1801–03 remeasurement of Lapland land almost on it.<span class="sf-fig-credit">Drawing: The Shape-Files · values from the surveys’ reports, converted from toises and Rhineland rods</span></p>
+</figcaption>
+</figure>
+<p>Lapland’s own degree, it later turned out, was too long. Swedish surveyors who remeasured the arc in 1801–03 found the distance on the ground almost exactly right and the star sightings off. Their report suspected the instrument and the nearby mountains, whose mass pulls a plumb line sideways.<span class="citation" data-cites="svanberg1805"><sup><a href="#ref-svanberg1805" role="doc-biblioref">24</a></sup></span> Lapland’s error was bigger than the real difference between a Lapland degree and a French one, so Lapland alone had proved little. The verdict held because Peru and the new French survey carried it.</p>
+</section>
+<section id="it-took-satellites-to-measure-how-much" class="level2">
+<h2 class="anchored" data-anchor-id="it-took-satellites-to-measure-how-much">It took satellites to measure how much</h2>
+<p>That verdict settled which way the Earth is squashed, but not by how much. An ellipsoid, the shape you get by spinning an ellipse about its short axis, needs only two numbers: the radius at the equator and the flattening. From the 1830s on, geodesists fitted ellipsoids to the arcs they had, and different countries adopted different ones. North America used the Clarke ellipsoid of 1866.<span class="citation" data-cites="dma1983 schwarz1989"><sup><a href="#ref-dma1983" role="doc-biblioref">25</a>,<a href="#ref-schwarz1989" role="doc-biblioref">26</a></sup></span> The equatorial radii of these ellipsoids differ by more than a kilometer, because each was fitted to different arcs on a planet that isn’t smooth.</p>
+<p>Gravity defines another surface, called the geoid. It is an irregular level surface that follows mean sea level and continues beneath the continents. Because gravity acts at right angles to it, a plumb line hangs perpendicular to the geoid, not necessarily to a smooth ellipsoid.<span class="citation" data-cites="dma1983"><sup><a href="#ref-dma1983" role="doc-biblioref">25</a></sup></span> The geoid falls about 106 meters below the ellipsoid south of India and rises as much as 85 meters above it elsewhere (Fig. 6).<span class="citation" data-cites="nasa_svs5660"><sup><a href="#ref-nasa_svs5660" role="doc-biblioref">27</a></sup></span> Where the geoid slopes, the direction of a plumb line shifts too. That shift affects latitudes measured from the stars, and it may help explain Lapland’s error.</p>
+<figure class="sf-fig sf-fig-photo figure" aria-labelledby="fig-6-cap">
+<a class="sf-fig-frame sf-zoom" href="figures/nasa-2026-geoid.jpg" aria-label="Enlarge figure 6"><img src="figures/nasa-2026-geoid.jpg" width="1200" height="1200" loading="lazy" alt="A lumpy, potato-like globe centered on the Indian Ocean, colored blue where it dips and red where it rises, with a deep blue hollow south of India and red over New Guinea; a color scale runs from minus 80 to plus 80 meters." class="figure-img"></a>
+<figcaption class="sf-fig-cap" id="fig-6-cap"><span class="sf-fig-label">Fig. 6</span>The geoid from satellite gravity data, with its heights exaggerated 10,000 times. Blue lies below a smooth ellipsoid and red above it.<span class="sf-fig-credit">Diagram: Mark SubbaRao, NASA Scientific Visualization Studio, from the GOCO06s gravity model, 2026 · <a href="https://www.nasa.gov/nasa-brand-center/images-and-media/">Public domain</a> · <a href="https://svs.gsfc.nasa.gov/5660/">NASA SVS</a></span></figcaption>
+</figure>
+<p>Satellites finally measured the flattening. The Earth’s equatorial bulge pulls unevenly on a satellite and slowly turns the plane of its orbit, at a rate that depends on the size of the bulge. By 1959 the orbits of Sputnik 2 and Vanguard 1 put the flattening at about 1/298.<span class="citation" data-cites="kinghele1959 okeefe1959"><sup><a href="#ref-kinghele1959" role="doc-biblioref">28</a>,<a href="#ref-okeefe1959" role="doc-biblioref">29</a></sup></span> Later satellites refined that into WGS 84, which keeps the equatorial radius at 6,378,137 meters and sets the flattening at 1/298.257223563.<span class="citation" data-cites="nima2000"><sup><a href="#ref-nima2000" role="doc-biblioref">2</a></sup></span></p>
+</section>
+<section id="every-coordinate-still-rests-on-those-two-numbers" class="level2">
+<h2 class="anchored" data-anchor-id="every-coordinate-still-rests-on-those-two-numbers">Every coordinate still rests on those two numbers</h2>
+<p>Every geographic coordinate system names an ellipsoid. A shapefile keeps its coordinate system in a small file beside it, the .prj, and for WGS 84 the two numbers are written out in plain text: 6378137, and 298.257223563, the inverse of the flattening.<span class="citation" data-cites="esri_prj esri_wkt"><sup><a href="#ref-esri_prj" role="doc-biblioref">30</a>,<a href="#ref-esri_wkt" role="doc-biblioref">31</a></sup></span> Much of North America’s older mapping used the Clarke ellipsoid, about 69 meters larger at the equator.<span class="citation" data-cites="schwarz1989"><sup><a href="#ref-schwarz1989" role="doc-biblioref">26</a></sup></span> Moving such data onto WGS 84 takes more than swapping one ellipsoid for another, but it starts with the file saying which Earth it was drawn on.</p>
+<p>Back on the phone, the blue dot rests on those two numbers. By those numbers, someone standing at 40° north, roughly the latitude of Philadelphia, is about 4,430 kilometers from the equator. On a sphere built from Snellius’ short degree, that distance would be about 135 kilometers shorter. On a perfect sphere built from Picard’s degree, it would be about 19 kilometers too long, because a sphere leaves out the squash. The phone computes the degree under your feet from a model built one measured degree at a time.</p>
+</section>
+<section id="references" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
+<div id="ref-nga2012" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">National Geospatial-Intelligence Agency. <span>“<span>World Geodetic System 1984</span>.”</span> Reference-frame template for the UN International Committee on GNSS, 2012. <a href="https://www.unoosa.org/pdf/icg/2012/template/WGS_84.pdf">https://www.unoosa.org/pdf/icg/2012/template/WGS_84.pdf</a>.</div>
+</div>
+<div id="ref-nima2000" class="csl-entry" role="listitem">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">National Imagery and Mapping Agency. <em><span class="nocase">Department of Defense World Geodetic System 1984: Its Definition and Relationships with Local Geodetic Systems</span></em>. NIMA TR8350.2, 3rd, Amendment 1 ed., <span>National Imagery and Mapping Agency</span>, 2000. <a href="https://engineering.purdue.edu/~andrisan/Courses/AAE565_S2007/Buffer/WGS84.pdf">https://engineering.purdue.edu/~andrisan/Courses/AAE565_S2007/Buffer/WGS84.pdf</a>.</div>
+</div>
+<div id="ref-cleomedes_ziegler1891" class="csl-entry" role="listitem">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">Cleomedes. <em><span class="nocase">Kleomēdous Kyklikēs theōrias meteōrōn biblia duo</span></em>. Teubner, Leipzig, 1891. Book I, ch. 10, pp. 94–103. Greek text with Latin translation. <a href="https://archive.org/details/kleomedouskyklik00cleo">https://archive.org/details/kleomedouskyklik00cleo</a>.</div>
+</div>
+<div id="ref-heath1921" class="csl-entry" role="listitem">
+<div class="csl-left-margin">4. </div><div class="csl-right-inline">Thomas L. Heath. <em><span class="nocase">A History of Greek Mathematics</span></em>. Clarendon Press, Oxford, 1921. <a href="https://archive.org/details/historyofgreekm02heat">https://archive.org/details/historyofgreekm02heat</a>.</div>
+</div>
+<div id="ref-strabo_jones" class="csl-entry" role="listitem">
+<div class="csl-left-margin">5. </div><div class="csl-right-inline">Strabo. <em><span class="nocase">The Geography of Strabo</span></em>. Harvard University Press (Loeb Classical Library), Cambridge, MA, 1932. Book 17, 1.48. <a href="https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Strabo/17A3*.html">https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Strabo/17A3*.html</a>.</div>
+</div>
+<div id="ref-pliny_nh2" class="csl-entry" role="listitem">
+<div class="csl-left-margin">6. </div><div class="csl-right-inline">Pliny the Elder. <em><span class="nocase">Naturalis historia</span></em>. Book 2, 2.183. Latin text at LacusCurtius. <a href="https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Pliny_the_Elder/2*.html">https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Pliny_the_Elder/2*.html</a>.</div>
+</div>
+<div id="ref-shcheglov2018" class="csl-entry" role="listitem">
+<div class="csl-left-margin">7. </div><div class="csl-right-inline">Dmitry A. Shcheglov. <span>“<span class="nocase">The So-Called <span>‘Itinerary Stade’</span> and the Accuracy of Eratosthenes’ Measurement of the Earth</span>.”</span> <em>Klio</em> 100 (1), 2018, pp. 153–177. <a href="https://doi.org/10.1515/klio-2018-0005">https://doi.org/10.1515/klio-2018-0005</a>.</div>
+</div>
+<div id="ref-picard1671" class="csl-entry" role="listitem">
+<div class="csl-left-margin">8. </div><div class="csl-right-inline">Jean Picard. <em><span class="nocase">Mesure de la Terre</span></em>. Imprimerie royale, Paris, 1671. <a href="https://archive.org/details/mesure-de-la-terre-par-...-picard-jean-btv-1b-7300361b">https://archive.org/details/mesure-de-la-terre-par-...-picard-jean-btv-1b-7300361b</a>.</div>
+</div>
+<div id="ref-haasbroek1968" class="csl-entry" role="listitem">
+<div class="csl-left-margin">9. </div><div class="csl-right-inline">N. D. Haasbroek. <em><span class="nocase">Gemma Frisius, Tycho Brahe and Snellius and Their Triangulations</span></em>. Netherlands Geodetic Commission, Delft, 1968. <a href="https://ncgeo.nl/publicatie/gemma-frisius-tycho-brahe-and-snellius-and-their-triangulations/">https://ncgeo.nl/publicatie/gemma-frisius-tycho-brahe-and-snellius-and-their-triangulations/</a>.</div>
+</div>
+<div id="ref-snellius1617" class="csl-entry" role="listitem">
+<div class="csl-left-margin">10. </div><div class="csl-right-inline">Willebrord Snellius. <em><span class="nocase">Eratosthenes Batavus, de terrae ambitus vera quantitate</span></em>. Jodocus van Colster, Leiden, 1617. <a href="https://archive.org/details/bub_gb__7rQzLUre_oC">https://archive.org/details/bub_gb__7rQzLUre_oC</a>.</div>
+</div>
+<div id="ref-todhunter1873" class="csl-entry" role="listitem">
+<div class="csl-left-margin">11. </div><div class="csl-right-inline">Isaac Todhunter. <em><span class="nocase">A History of the Mathematical Theories of Attraction and the Figure of the Earth</span></em>. Macmillan, London, 1873. <a href="https://archive.org/details/cu31924007369162">https://archive.org/details/cu31924007369162</a>.</div>
+</div>
+<div id="ref-richer1679" class="csl-entry" role="listitem">
+<div class="csl-left-margin">12. </div><div class="csl-right-inline">Jean Richer. <em><span class="nocase">Observations astronomiques et physiques faites en l’isle de Caïenne</span></em>. Imprimerie royale, Paris, 1679. <a href="https://archive.org/details/bub_gb_0kdu3lm1ZOQC">https://archive.org/details/bub_gb_0kdu3lm1ZOQC</a>.</div>
+</div>
+<div id="ref-newton1687" class="csl-entry" role="listitem">
+<div class="csl-left-margin">13. </div><div class="csl-right-inline">Isaac Newton. <em><span class="nocase">Philosophiae naturalis principia mathematica</span></em>. Joseph Streater, London, 1687. Book III, Prop. IV, p. 406. Smithsonian Libraries copy. <a href="https://library.si.edu/digital-library/book/philosophiaenat00newt">https://library.si.edu/digital-library/book/philosophiaenat00newt</a>.</div>
+</div>
+<div id="ref-newton1729" class="csl-entry" role="listitem">
+<div class="csl-left-margin">14. </div><div class="csl-right-inline">Isaac Newton. <em><span class="nocase">The Mathematical Principles of Natural Philosophy</span></em>. Benjamin Motte, London, 1729. Book III, Props. XIX–XX, pp. 239–251. <a href="https://archive.org/details/bim_eighteenth-century_principia-english-th_newton-sir-isaac_1729_2">https://archive.org/details/bim_eighteenth-century_principia-english-th_newton-sir-isaac_1729_2</a>.</div>
+</div>
+<div id="ref-maupertuis1738en" class="csl-entry" role="listitem">
+<div class="csl-left-margin">15. </div><div class="csl-right-inline">Pierre-Louis Moreau de Maupertuis. <em><span class="nocase">The Figure of the Earth, Determined from Observations Made by Order of the French King, at the Polar Circle</span></em>. <span>T. Cox, C. Davis, J. and P. Knapton, and A. Millar</span>, London, 1738. <a href="https://archive.org/details/bim_eighteenth-century_figure-de-la-perre-eng_moreau-de-mauperiuis-p_1738">https://archive.org/details/bim_eighteenth-century_figure-de-la-perre-eng_moreau-de-mauperiuis-p_1738</a>.</div>
+</div>
+<div id="ref-cassini1720" class="csl-entry" role="listitem">
+<div class="csl-left-margin">16. </div><div class="csl-right-inline">Jacques Cassini. <em><span class="nocase">De la grandeur et de la figure de la terre</span></em>. Imprimerie royale, Paris, 1720. Suite des Mémoires de l’Académie royale des sciences, année 1718. <a href="https://archive.org/details/suitedesmemoire00mgoog">https://archive.org/details/suitedesmemoire00mgoog</a>.</div>
+</div>
+<div id="ref-cassinidethury1744" class="csl-entry" role="listitem">
+<div class="csl-left-margin">17. </div><div class="csl-right-inline">César-François Cassini de Thury. <em><span class="nocase">La méridienne de l’Observatoire royal de Paris, vérifiée dans toute l’étendue du royaume</span></em>. Paris, 1744. Discours préliminaire, pp. 2–3. <a href="https://archive.org/details/bub_gb_cJIy1r_AEVAC">https://archive.org/details/bub_gb_cJIy1r_AEVAC</a>.</div>
+</div>
+<div id="ref-lacondamine1751journal" class="csl-entry" role="listitem">
+<div class="csl-left-margin">18. </div><div class="csl-right-inline">Charles-Marie de La Condamine. <em><span class="nocase">Journal du voyage fait par ordre du roi, à l’équateur</span></em>. Imprimerie royale, Paris, 1751. Universidad de Sevilla copy, with plates. <a href="https://archive.org/details/A255103">https://archive.org/details/A255103</a>.</div>
+</div>
+<div id="ref-lacondamine1746" class="csl-entry" role="listitem">
+<div class="csl-left-margin">19. </div><div class="csl-right-inline">Charles-Marie de La Condamine. <em><span class="nocase">Lettre à Madame *** sur l’émeute populaire excitée en la ville de Cuenca au Pérou, le 29 d’août 1739</span></em>. [Paris], 1746. <a href="https://archive.org/details/lettremadamesurl00laco">https://archive.org/details/lettremadamesurl00laco</a>.</div>
+</div>
+<div id="ref-maupertuis1738" class="csl-entry" role="listitem">
+<div class="csl-left-margin">20. </div><div class="csl-right-inline">Pierre-Louis Moreau de Maupertuis. <em><span class="nocase">La figure de la terre, déterminée par les observations de Messieurs de Maupertuis, Clairaut, Camus, Le Monnier, &amp; de M. l’Abbé Outhier, accompagnés de M. Celsius</span></em>. Imprimerie royale, Paris, 1738. Wellcome Collection copy. <a href="https://archive.org/details/b30522791_0003">https://archive.org/details/b30522791_0003</a>.</div>
+</div>
+<div id="ref-voltaire_moland34" class="csl-entry" role="listitem">
+<div class="csl-left-margin">21. </div><div class="csl-right-inline">Voltaire. <em><span class="nocase">Œuvres complètes</span></em>. Garnier, Paris, 1880. Vol. 34, Correspondance II, letter 806 (to Formont, 23 December 1737), p. 366. <a href="https://archive.org/details/oeuvrescomplte34voltuoft">https://archive.org/details/oeuvrescomplte34voltuoft</a>.</div>
+</div>
+<div id="ref-voltaire_moland36" class="csl-entry" role="listitem">
+<div class="csl-left-margin">22. </div><div class="csl-right-inline">Voltaire. <em><span class="nocase">Œuvres complètes</span></em>. Garnier, Paris, 1880. Vol. 36, Correspondance IV, letter 1465 (10 August 1741), p. 91, and letter 1458 with the editor’s note, pp. 82–83. <a href="https://archive.org/details/oeuvrescomplte36voltuoft">https://archive.org/details/oeuvrescomplte36voltuoft</a>.</div>
+</div>
+<div id="ref-lacondamine1751mesure" class="csl-entry" role="listitem">
+<div class="csl-left-margin">23. </div><div class="csl-right-inline">Charles-Marie de La Condamine. <em><span class="nocase">Mesure des trois premiers degrés du méridien dans l’hémisphère austral</span></em>. Imprimerie royale, Paris, 1751. <a href="https://archive.org/details/bub_gb_ojb8vLw3Q-gC">https://archive.org/details/bub_gb_ojb8vLw3Q-gC</a>.</div>
+</div>
+<div id="ref-svanberg1805" class="csl-entry" role="listitem">
+<div class="csl-left-margin">24. </div><div class="csl-right-inline">Jöns Svanberg. <em><span class="nocase">Exposition des opérations faites en Lapponie, pour la détermination d’un arc du méridien, en 1801, 1802 et 1803</span></em>. J. P. Lindh, Stockholm, 1805. <a href="https://archive.org/details/TO0E037814_TO0324_PNI-2547_000000">https://archive.org/details/TO0E037814_TO0324_PNI-2547_000000</a>.</div>
+</div>
+<div id="ref-dma1983" class="csl-entry" role="listitem">
+<div class="csl-left-margin">25. </div><div class="csl-right-inline">Defense Mapping Agency. <em><span class="nocase">Geodesy for the Layman</span></em>. DMA TR 80-003, 5th ed., Defense Mapping Agency, 1983. <a href="https://geodesy.noaa.gov/PUBS_LIB/Geodesy4Layman/toc.htm">https://geodesy.noaa.gov/PUBS_LIB/Geodesy4Layman/toc.htm</a>.</div>
+</div>
+<div id="ref-schwarz1989" class="csl-entry" role="listitem">
+<div class="csl-left-margin">26. </div><div class="csl-right-inline">Charles R. Schwarz. <em><span class="nocase">North American Datum of 1983</span></em>. NOAA Professional Paper NOS 2, National Geodetic Survey, Rockville, MD, 1989. <a href="https://geodesy.noaa.gov/library/pdfs/NOAA_PP_NOS_0002.pdf">https://geodesy.noaa.gov/library/pdfs/NOAA_PP_NOS_0002.pdf</a>.</div>
+</div>
+<div id="ref-nasa_svs5660" class="csl-entry" role="listitem">
+<div class="csl-left-margin">27. </div><div class="csl-right-inline">Mark SubbaRao. <span>“<span>The Geoid</span>.”</span> NASA Scientific Visualization Studio, ID 5660, 2026. Science advisor Scott Luthcke. Geoid heights from the GOCO06s gravity model (Kvas et al. 2021). Accessed 2026-11-04. <a href="https://svs.gsfc.nasa.gov/5660/">https://svs.gsfc.nasa.gov/5660/</a>.</div>
+</div>
+<div id="ref-kinghele1959" class="csl-entry" role="listitem">
+<div class="csl-left-margin">28. </div><div class="csl-right-inline">D. G. King-Hele and R. H. Merson. <span>“<span class="nocase">A New Value for the Earth’s Flattening, Derived from Measurements of Satellite Orbits</span>.”</span> <em>Nature</em> 183 (4665), 1959, pp. 881–882. <a href="https://doi.org/10.1038/183881a0">https://doi.org/10.1038/183881a0</a>.</div>
+</div>
+<div id="ref-okeefe1959" class="csl-entry" role="listitem">
+<div class="csl-left-margin">29. </div><div class="csl-right-inline">John A. O’Keefe, Ann Eckels, and R. Kenneth Squires. <span>“<span class="nocase">The Gravitational Field of the Earth</span>.”</span> <em>Astronomical Journal</em> 64, 1959, pp. 245–253. <a href="https://articles.adsabs.harvard.edu/pdf/1959AJ.....64..245O">https://articles.adsabs.harvard.edu/pdf/1959AJ.....64..245O</a>.</div>
+</div>
+<div id="ref-esri_prj" class="csl-entry" role="listitem">
+<div class="csl-left-margin">30. </div><div class="csl-right-inline">Esri. <span>“<span class="nocase">Fundamentals of a shapefile’s coordinate system</span>.”</span> ArcGIS Desktop 10.5 help. <a href="https://desktop.arcgis.com/en/arcmap/10.5/manage-data/shapefiles/fundamentals-of-a-shapefiles-coordinate-system.htm">https://desktop.arcgis.com/en/arcmap/10.5/manage-data/shapefiles/fundamentals-of-a-shapefiles-coordinate-system.htm</a>.</div>
+</div>
+<div id="ref-esri_wkt" class="csl-entry" role="listitem">
+<div class="csl-left-margin">31. </div><div class="csl-right-inline">Esri. <span>“<span>IGeometryServer.FindSRByWKT Method</span>.”</span> ArcObjects .NET 10.4 SDK. Well-known text examples with SPHEROID["WGS_1984",6378137.0,298.257223563]. <a href="https://desktop.arcgis.com/en/arcobjects/10.4/net/IGeometryServer_FindSRByWKT.htm">https://desktop.arcgis.com/en/arcobjects/10.4/net/IGeometryServer_FindSRByWKT.htm</a>.</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script>
+/* Swap the navbar logo for an inline copy that follows the page's light or dark colors. */
+(function () {
+  var img = document.querySelector("img.navbar-logo"); if (!img) return;
+  img.outerHTML = '<svg class="navbar-logo sf-mark" viewBox="0 0 64 64" role="img" aria-label="The Shape-Files"><polyline class="ink" points="5,42 32,57.5 59,42" fill="none" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><polyline class="ink" points="5,32 32,47.5 59,32" fill="none" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><polygon class="slab" points="32,6.5 51.5,17.8 51.5,26.2 32,37.5 5,22" stroke-width="4" stroke-linejoin="round"/><polygon class="fold" points="51.5,17.8 44.2,22 51.5,26.2" stroke-width="2" stroke-linejoin="round"/></svg>';
+})();
+</script>
+<script>
+/* Load the design-system runtime relative to the site root, which differs on GitHub Pages project sites. */
+(function () {
+  var nav = [].slice.call(document.scripts).filter(function (x) { return /site_libs\/quarto-nav\/quarto-nav\.js/.test(x.getAttribute("src") || ""); })[0];
+  var base = nav ? nav.getAttribute("src").replace(/site_libs\/quarto-nav\/quarto-nav\.js.*$/, "") : "";
+  if (!document.querySelector(".sf-hero-mount")) return;
+  ["react.production.min.js", "react-dom.production.min.js", "three.min.js", "shapefiles.bundle.js", "hero-mount.js"].reduce(function (p, f) {
+    return p.then(function () { return new Promise(function (done) { var e = document.createElement("script"); e.src = base + "assets/js/" + f + "?v=20261104190815"; e.onload = done; e.onerror = done; document.body.appendChild(e); }); });
+  }, Promise.resolve());
+})();
+</script>
+
+<script>
+/* Click a photo to see it full size, with its caption. Esc, a click or the close button returns. */
+(function () {
+  var links = document.querySelectorAll("a.sf-zoom");
+  if (!links.length) return;
+  var box = document.createElement("div");
+  box.className = "sf-zoombox"; box.setAttribute("role", "dialog"); box.setAttribute("aria-modal", "true"); box.hidden = true;
+  box.innerHTML = '<button class="sf-zoombox-close" type="button" aria-label="Close">×</button><figure><img alt=""><figcaption></figcaption></figure>';
+  document.body.appendChild(box);
+  var img = box.querySelector("img"), cap = box.querySelector("figcaption"), closeBtn = box.querySelector("button"), last = null;
+  function close() { box.hidden = true; document.documentElement.classList.remove("sf-zoom-open"); img.removeAttribute("src"); if (last) last.focus(); }
+  links.forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      if (e.metaKey || e.ctrlKey || e.shiftKey) return;
+      e.preventDefault(); last = a;
+      var f = a.closest("figure"), i = a.querySelector("img"), c = f && f.querySelector("figcaption");
+      img.src = a.getAttribute("href"); img.alt = i ? i.alt : "";
+      cap.innerHTML = c ? c.innerHTML : "";
+      box.setAttribute("aria-label", i ? i.alt : "Figure");
+      box.hidden = false; document.documentElement.classList.add("sf-zoom-open"); closeBtn.focus();
+    });
+  });
+  box.addEventListener("click", function (e) { if (e.target === box || e.target === img || e.target === closeBtn) close(); });
+  document.addEventListener("keydown", function (e) { if (!box.hidden && e.key === "Escape") close(); });
+})();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/jacob-hogue\.github\.io\/the-shape-files\/");
+      const newWindowLabel = "(opens in a new tab)";
+      const newWindowNoteId = "quarto-ext-newwindow-label";
+      // Links reference one hidden label through aria-describedby, so the
+      // announcement never changes their accessible name.
+      var describeNewWindow = (link) => {
+        if (!window.document.getElementById(newWindowNoteId)) {
+          var newWindowNote = window.document.createElement("span");
+          newWindowNote.id = newWindowNoteId;
+          newWindowNote.hidden = true;
+          newWindowNote.textContent = newWindowLabel;
+          window.document.body.appendChild(newWindowNote);
+        }
+        var describedBy = (link.getAttribute("aria-describedby") || "").split(/\s+/).filter(Boolean);
+        if (!describedBy.includes(newWindowNoteId)) {
+          describedBy.push(newWindowNoteId);
+          link.setAttribute("aria-describedby", describedBy.join(" "));
+        }
+      }
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            describeNewWindow(link);
+          if (!link.classList.contains('no-external-icon')) {
+          }
+        }
+      }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
+          if (lineIds.length > 0) {
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            placeBand(gutterDiv, el, lastEl);
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>The Shape-Files · by <a href="https://jacob-hogue.github.io">Jacob Hogue</a></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p><a href="index.xml">RSS</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

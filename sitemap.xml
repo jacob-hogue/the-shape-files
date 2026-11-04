@@ -2,14 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://jacob-hogue.github.io/the-shape-files/articles/the-map-room/index.html</loc>
-    <lastmod>2026-11-04T17:36:48.465Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jacob-hogue.github.io/the-shape-files/index.html</loc>
-    <lastmod>2026-11-03T22:46:26.615Z</lastmod>
+    <lastmod>2026-11-04T19:08:09.493Z</lastmod>
   </url>
   <url>
     <loc>https://jacob-hogue.github.io/the-shape-files/about.html</loc>
     <lastmod>2026-11-03T15:45:03.329Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jacob-hogue.github.io/the-shape-files/index.html</loc>
+    <lastmod>2026-11-04T19:08:09.494Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jacob-hogue.github.io/the-shape-files/articles/measuring-the-earth/index.html</loc>
+    <lastmod>2026-11-04T19:08:09.493Z</lastmod>
   </url>
 </urlset>

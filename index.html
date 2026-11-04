@@ -132,9 +132,9 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles/tokens.css?v=20261104173658">
-<link rel="stylesheet" href="styles/components.css?v=20261104173658">
-<link rel="stylesheet" href="styles/site.css?v=20261104173658">
+<link rel="stylesheet" href="styles/tokens.css?v=20261104190815">
+<link rel="stylesheet" href="styles/components.css?v=20261104190815">
+<link rel="stylesheet" href="styles/site.css?v=20261104190815">
 <link rel="alternate" type="application/rss+xml" title="The Shape-Files" href="index.xml" data-external="1"><meta property="og:title" content="The Shape-Files">
 <meta property="og:description" content="A technical history of GIS, told through the formats, algorithms and systems that built it.">
 <meta property="og:image" content="https://jacob-hogue.github.io/the-shape-files/assets/img/share-default.png">
@@ -223,6 +223,12 @@ window.Quarto = {
 <span class="sf-files-sub">Before computers, a question like how much insect damage fell on each owner's forest land took paper maps, a table lit from below, and a lot of counting. The work was all done by hand, and when a new question about the same landscape came in, most of the drawing and counting had to be done again.</span>
 </a></li>
 
+<li><a class="sf-files-row" href="./articles/measuring-the-earth/index.html">
+<span class="sf-files-no">File 002</span>
+<span class="sf-files-title">How Humans Learned to Measure the Earth</span>
+<span class="sf-files-sub">From shadows in Egypt to a frozen river in Lapland and satellites in orbit, how people measured one degree of latitude until they knew the Earth's size and shape.</span>
+</a></li>
+
 </ol>
 <div class="listing-no-matching d-none">No matching items</div>
 </div>
@@ -230,7 +236,6 @@ window.Quarto = {
 <section id="next" class="level2">
 <h2 class="anchored" data-anchor-id="next">Coming next</h2>
 <ol class="sf-next">
-<li><span class="sf-files-no">File 002</span><span class="sf-next-title">How Humans Learned to Measure the Earth</span><span class="sf-next-sub">Arc measurement, triangulation, the long argument over the Earth’s shape, and the reference surfaces every coordinate still depends on.</span></li>
 <li><span class="sf-files-no">File 003</span><span class="sf-next-title">Latitude, Longitude and the Datum Problem</span><span class="sf-next-sub">Why the same pair of numbers can mean places hundreds of meters apart, and what a coordinate reference system actually contains.</span></li>
 <li><span class="sf-files-no">File 004</span><span class="sf-next-title">Map Projections: Flattening a Curved Earth</span><span class="sf-next-sub">What every projection gives up, how Mercator and its relatives work, and the difference between converting and transforming coordinates.</span></li>
 </ol>
@@ -255,7 +260,7 @@ window.Quarto = {
   var base = nav ? nav.getAttribute("src").replace(/site_libs\/quarto-nav\/quarto-nav\.js.*$/, "") : "";
   if (!document.querySelector(".sf-hero-mount")) return;
   ["react.production.min.js", "react-dom.production.min.js", "three.min.js", "shapefiles.bundle.js", "hero-mount.js"].reduce(function (p, f) {
-    return p.then(function () { return new Promise(function (done) { var e = document.createElement("script"); e.src = base + "assets/js/" + f + "?v=20261104173658"; e.onload = done; e.onerror = done; document.body.appendChild(e); }); });
+    return p.then(function () { return new Promise(function (done) { var e = document.createElement("script"); e.src = base + "assets/js/" + f + "?v=20261104190815"; e.onload = done; e.onerror = done; document.body.appendChild(e); }); });
   }, Promise.resolve());
 })();
 </script>
