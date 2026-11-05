@@ -17,7 +17,18 @@
 <width>144</width>
 </image>
 <generator>quarto-1.11.9</generator>
-<lastBuildDate>Wed, 04 Nov 2026 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 11 Nov 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Latitude, Longitude and the Datum Problem</title>
+  <dc:creator>Jacob Hogue</dc:creator>
+  <link>https://jacob-hogue.github.io/the-shape-files/articles/the-datum-problem/</link>
+  <description><![CDATA[ Why the Prime Meridian line at Greenwich is about 102 meters from GPS zero: longitude as time, the 1884 vote, a datum pinned to a Kansas pasture, Earth-centered datums, and what a missing datum does to GIS data today. ]]></description>
+  <category>History</category>
+  <category>Geodesy</category>
+  <guid>https://jacob-hogue.github.io/the-shape-files/articles/the-datum-problem/</guid>
+  <pubDate>Wed, 11 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://jacob-hogue.github.io/the-shape-files/articles/the-datum-problem/figures/share.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
 <item>
   <title>How Humans Learned to Measure the Earth</title>
   <dc:creator>Jacob Hogue</dc:creator>

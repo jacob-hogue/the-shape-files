@@ -132,9 +132,9 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles/tokens.css?v=20261104193341">
-<link rel="stylesheet" href="styles/components.css?v=20261104193341">
-<link rel="stylesheet" href="styles/site.css?v=20261104193341">
+<link rel="stylesheet" href="styles/tokens.css?v=20261105145731">
+<link rel="stylesheet" href="styles/components.css?v=20261105145731">
+<link rel="stylesheet" href="styles/site.css?v=20261105145731">
 <link rel="alternate" type="application/rss+xml" title="The Shape-Files" href="index.xml" data-external="1"><meta property="og:title" content="The Shape-Files">
 <meta property="og:description" content="A technical history of GIS, told through the formats, algorithms and systems that built it.">
 <meta property="og:image" content="https://jacob-hogue.github.io/the-shape-files/assets/img/share-default.png">
@@ -229,6 +229,12 @@ window.Quarto = {
 <span class="sf-files-sub">From shadows in Egypt to a frozen river in Lapland and satellites in orbit, how people measured one degree of latitude until they knew the Earth's size and shape.</span>
 </a></li>
 
+<li><a class="sf-files-row" href="./articles/the-datum-problem/index.html">
+<span class="sf-files-no">File 003</span>
+<span class="sf-files-title">Latitude, Longitude and the Datum Problem</span>
+<span class="sf-files-sub">The same pair of coordinates can point to places hundreds of meters apart. The moon’s tables, a vote in Washington, a pasture in Kansas, and satellites each helped decide where coordinates begin, and their choices are still in the data.</span>
+</a></li>
+
 </ol>
 <div class="listing-no-matching d-none">No matching items</div>
 </div>
@@ -236,8 +242,8 @@ window.Quarto = {
 <section id="next" class="level2">
 <h2 class="anchored" data-anchor-id="next">Coming next</h2>
 <ol class="sf-next">
-<li><span class="sf-files-no">File 003</span><span class="sf-next-title">Latitude, Longitude and the Datum Problem</span><span class="sf-next-sub">Why the same pair of numbers can mean places hundreds of meters apart, and what a coordinate reference system actually contains.</span></li>
 <li><span class="sf-files-no">File 004</span><span class="sf-next-title">Map Projections: Flattening a Curved Earth</span><span class="sf-next-sub">What every projection gives up, how Mercator and its relatives work, and the difference between converting and transforming coordinates.</span></li>
+<li><span class="sf-files-no">File 005</span><span class="sf-next-title">Scale, Accuracy and the Limits of a Map</span><span class="sf-next-sub">Representative fractions, accuracy standards and why digital maps keep the precision of the paper they came from.</span></li>
 </ol>
 <p class="sf-follow">A new file comes out every week. Follow along with the <a href="index.xml">RSS feed</a>.</p>
 
@@ -260,7 +266,7 @@ window.Quarto = {
   var base = nav ? nav.getAttribute("src").replace(/site_libs\/quarto-nav\/quarto-nav\.js.*$/, "") : "";
   if (!document.querySelector(".sf-hero-mount")) return;
   ["react.production.min.js", "react-dom.production.min.js", "three.min.js", "shapefiles.bundle.js", "hero-mount.js"].reduce(function (p, f) {
-    return p.then(function () { return new Promise(function (done) { var e = document.createElement("script"); e.src = base + "assets/js/" + f + "?v=20261104193341"; e.onload = done; e.onerror = done; document.body.appendChild(e); }); });
+    return p.then(function () { return new Promise(function (done) { var e = document.createElement("script"); e.src = base + "assets/js/" + f + "?v=20261105145731"; e.onload = done; e.onerror = done; document.body.appendChild(e); }); });
   }, Promise.resolve());
 })();
 </script>

@@ -101,9 +101,9 @@ div.csl-indent {
 <style>html{ scroll-behavior: smooth; }</style>
 
 
-<link rel="stylesheet" href="../../styles/tokens.css?v=20261104193341">
-<link rel="stylesheet" href="../../styles/components.css?v=20261104193341">
-<link rel="stylesheet" href="../../styles/site.css?v=20261104193341">
+<link rel="stylesheet" href="../../styles/tokens.css?v=20261105145731">
+<link rel="stylesheet" href="../../styles/components.css?v=20261105145731">
+<link rel="stylesheet" href="../../styles/site.css?v=20261105145731">
 <meta property="og:title" content="How Humans Learned to Measure the Earth – The Shape-Files">
 <meta property="og:description" content="From Eratosthenes’ shadows to Snellius’ church towers, a frozen river in Lapland, the Andes, and the satellites behind WGS 84: how measuring one degree of latitude revealed the Earth’s size and shape.">
 <meta property="og:image" content="https://jacob-hogue.github.io/the-shape-files/articles/measuring-the-earth/figures/share.png">
@@ -212,7 +212,7 @@ div.csl-indent {
 
 
 <div class="sf-article-path">
-<nav class="sf-prereq sf-prereq-single" aria-label="Reading path">
+<nav class="sf-prereq" aria-label="Reading path">
 <div class="sf-prereq-col">
 <p class="sf-prereq-head">
 Read first
@@ -220,6 +220,16 @@ Read first
 <ul class="sf-prereq-list">
 <li>
 <span class="sf-prereq-id">001</span><a href="../the-map-room/">The Map Room: Answering Geographic Questions by Hand</a>
+</li>
+</ul>
+</div>
+<div class="sf-prereq-col">
+<p class="sf-prereq-head">
+Leads to
+</p>
+<ul class="sf-prereq-list">
+<li>
+<span class="sf-prereq-id">003</span><a href="../the-datum-problem/">Latitude, Longitude and the Datum Problem</a>
 </li>
 </ul>
 </div>
@@ -310,7 +320,7 @@ Length of one degree of latitude by latitude: the WGS 84 curve rises from 110.57
 </section>
 <section id="every-coordinate-still-rests-on-those-two-numbers" class="level2">
 <h2 class="anchored" data-anchor-id="every-coordinate-still-rests-on-those-two-numbers">Every coordinate still rests on those two numbers</h2>
-<p>Every geographic coordinate system names an ellipsoid. A shapefile keeps its coordinate system in a small file beside it, the .prj, and for WGS 84 the two numbers are written out in plain text: 6378137, and 298.257223563, the inverse of the flattening.<span class="citation" data-cites="esri_prj esri_wkt"><sup><a href="#ref-esri_prj" role="doc-biblioref">30</a>,<a href="#ref-esri_wkt" role="doc-biblioref">31</a></sup></span> Much of North America’s older mapping used the Clarke ellipsoid, about 69 meters larger at the equator.<span class="citation" data-cites="schwarz1989"><sup><a href="#ref-schwarz1989" role="doc-biblioref">26</a></sup></span> Moving such data onto WGS 84 takes more than swapping one ellipsoid for another, but it starts with the file saying which Earth it was drawn on.</p>
+<p>Every geographic coordinate system names an ellipsoid. A shapefile keeps its coordinate system in a small file beside it, the .prj, and for WGS 84 the two numbers are written out in plain text: 6378137, and 298.257223563, the inverse of the flattening.<span class="citation" data-cites="esri_prj esri_wkt"><sup><a href="#ref-esri_prj" role="doc-biblioref">30</a>,<a href="#ref-esri_wkt" role="doc-biblioref">31</a></sup></span> Much of North America’s older mapping used the Clarke ellipsoid, about 69 meters larger at the equator.<span class="citation" data-cites="schwarz1989"><sup><a href="#ref-schwarz1989" role="doc-biblioref">26</a></sup></span> Moving such data onto WGS 84 takes more than swapping one ellipsoid for another, but it starts with the file saying which Earth it was drawn on. Which Earth, and where it sits on the real one, is the subject of <a href="../the-datum-problem/">File 003, <em>Latitude, Longitude and the Datum Problem</em></a>.</p>
 <p>Back on the phone, the blue dot rests on those two numbers. By those numbers, someone standing at 40° north, roughly the latitude of Philadelphia, is about 4,430 kilometers from the equator. On a sphere built from Snellius’ short degree, that distance would be about 135 kilometers shorter. On a perfect sphere built from Picard’s degree, it would be about 19 kilometers too long, because a sphere leaves out the squash. The phone computes the degree under your feet from a model built one measured degree at a time.</p>
 </section>
 <section id="references" class="level2 unnumbered">
@@ -429,7 +439,7 @@ Length of one degree of latitude by latitude: the WGS 84 curve rises from 110.57
   var base = nav ? nav.getAttribute("src").replace(/site_libs\/quarto-nav\/quarto-nav\.js.*$/, "") : "";
   if (!document.querySelector(".sf-hero-mount")) return;
   ["react.production.min.js", "react-dom.production.min.js", "three.min.js", "shapefiles.bundle.js", "hero-mount.js"].reduce(function (p, f) {
-    return p.then(function () { return new Promise(function (done) { var e = document.createElement("script"); e.src = base + "assets/js/" + f + "?v=20261104193341"; e.onload = done; e.onerror = done; document.body.appendChild(e); }); });
+    return p.then(function () { return new Promise(function (done) { var e = document.createElement("script"); e.src = base + "assets/js/" + f + "?v=20261105145731"; e.onload = done; e.onerror = done; document.body.appendChild(e); }); });
   }, Promise.resolve());
 })();
 </script>
