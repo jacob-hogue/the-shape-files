@@ -1,0 +1,72 @@
+# Publishes a prepared release on its date.
+#
+# A branch named release/YYYY-MM-DD holds the finished site for that day, as commits on top of
+# main (a later release sits on top of the earlier one). Every day at 12:17 UTC this workflow
+# fast-forwards main to each release that is due, deletes its branch and deploys the site.
+# A fast-forward adds no commit of its own. A push to a release branch only checks it.
+name: Scheduled release
+on:
+  schedule:
+    - cron: "17 12 * * *"
+  workflow_dispatch:
+  push:
+    branches: ["release/**"]
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: release
+  cancel-in-progress: false
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    outputs:
+      released: ${{ steps.ff.outputs.released }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+          fetch-depth: 0
+      - id: ff
+        name: Fast-forward main to every release that is due
+        env:
+          CHECK_ONLY: ${{ github.event_name == 'push' }}
+        run: |
+          set -euo pipefail
+          today=$(date -u +%F)
+          git fetch origin '+refs/heads/release/*:refs/remotes/origin/release/*'
+          released=false
+          for ref in $(git for-each-ref --format='%(refname:short)' refs/remotes/origin/release/ | sort); do
+            day=${ref#origin/release/}
+            if ! [[ $day =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]; then echo "skip $ref: not a date"; continue; fi
+            if ! git merge-base --is-ancestor HEAD "$ref"; then
+              echo "::error::$ref does not build on main. Rebuild it on top of main."
+              exit 1
+            fi
+            if [[ "$CHECK_ONLY" == "true" ]]; then echo "$ref: ready, due $day"; continue; fi
+            if [[ "$day" > "$today" ]]; then echo "$ref: due $day, not yet"; break; fi
+            git merge --ff-only "$ref"
+            git push origin HEAD:main
+            git push origin --delete "release/$day"
+            released=true
+            echo "released $ref"
+          done
+          if [[ "$CHECK_ONLY" == "true" ]]; then git push --dry-run origin HEAD:main; fi
+          echo "released=$released" >> "$GITHUB_OUTPUT"
+  deploy:
+    needs: release
+    if: needs.release.outputs.released == 'true'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: .
+      - id: deployment
+        uses: actions/deploy-pages@v5

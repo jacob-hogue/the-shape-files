@@ -12,3 +12,4 @@ A technical history of GIS and geospatial computing by [Jacob Hogue](https://jac
 | No. | Title |
 |---|---|
 | 001 | [The Map Room: Answering Geographic Questions by Hand](https://jacob-hogue.github.io/the-shape-files/articles/the-map-room/) |
+| 002 | [How Humans Learned to Measure the Earth](https://jacob-hogue.github.io/the-shape-files/articles/measuring-the-earth/) |
