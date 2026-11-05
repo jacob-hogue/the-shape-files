@@ -101,9 +101,9 @@ div.csl-indent {
 <style>html{ scroll-behavior: smooth; }</style>
 
 
-<link rel="stylesheet" href="../../styles/tokens.css?v=20261105145731">
-<link rel="stylesheet" href="../../styles/components.css?v=20261105145731">
-<link rel="stylesheet" href="../../styles/site.css?v=20261105145731">
+<link rel="stylesheet" href="../../styles/tokens.css?v=20261105162045">
+<link rel="stylesheet" href="../../styles/components.css?v=20261105162045">
+<link rel="stylesheet" href="../../styles/site.css?v=20261105162045">
 <meta property="og:title" content="Latitude, Longitude and the Datum Problem – The Shape-Files">
 <meta property="og:description" content="Why the Prime Meridian line at Greenwich is about 102 meters from GPS zero: longitude as time, the 1884 vote, a datum pinned to a Kansas pasture, Earth-centered datums, and what a missing datum does to GIS data today.">
 <meta property="og:image" content="https://jacob-hogue.github.io/the-shape-files/articles/the-datum-problem/figures/share.png">
@@ -202,7 +202,7 @@ div.csl-indent {
 <div class="quarto-title-meta sf-byline">
     <p class="sf-byline-author">By <a href="https://jacob-hogue.github.io">Jacob Hogue</a> </p>
       <p class="sf-byline-date"><span class="visually-hidden">Published </span>November 11, 2026</p>
-        <p class="sf-byline-time">11 min read</p>
+        <p class="sf-byline-time">12 min read</p>
   </div>
 
 
@@ -212,7 +212,7 @@ div.csl-indent {
 
 
 <div class="sf-article-path">
-<nav class="sf-prereq sf-prereq-single" aria-label="Reading path">
+<nav class="sf-prereq" aria-label="Reading path">
 <div class="sf-prereq-col">
 <p class="sf-prereq-head">
 Read first
@@ -220,6 +220,16 @@ Read first
 <ul class="sf-prereq-list">
 <li>
 <span class="sf-prereq-id">002</span><a href="../measuring-the-earth/">How Humans Learned to Measure the Earth</a>
+</li>
+</ul>
+</div>
+<div class="sf-prereq-col">
+<p class="sf-prereq-head">
+Leads to
+</p>
+<ul class="sf-prereq-list">
+<li>
+<span class="sf-prereq-id">004</span><a href="../map-projections/">Map Projections: Flattening a Curved Earth</a>
 </li>
 </ul>
 </div>
@@ -289,7 +299,7 @@ Horizontal bars showing how far coordinates moved on the change to an Earth-cent
 <a class="sf-fig-frame sf-zoom" href="figures/ga-2017-australia-moves.jpg" aria-label="Enlarge figure 5"><img src="figures/ga-2017-australia-moves.jpg" width="700" height="291" loading="lazy" alt="A satellite image of Australia under a white grid, beside a gray panel with an arrow pointing up and to the right labeled Moving north-eastward, and the figures 7 centimeters per year and 7 meters per 100 years." class="figure-img"></a>
 <figcaption class="sf-fig-cap" id="fig-5-cap"><span class="sf-fig-label">Fig. 5</span>Geoscience Australia’s graphic for the 2017 change. The grid stands for the country’s coordinates, and the arrow shows the drift they had to follow.<span class="sf-fig-credit">Diagram: © Commonwealth of Australia (Geoscience Australia), 2017 · <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · <a href="https://www.ga.gov.au/news/news-archive/australia-officially-moves-1.8-metres-northeast">Geoscience Australia</a></span></figcaption>
 </figure>
-<p>The size of a mismatch is a rough guide to its cause. A gap of a meter or two suggests NAD 83 data read as WGS 84. Tens of meters suggest data on an old continental datum, such as the 1927 one. Hundreds of meters suggest an old island datum, or a shortcut that applied no datum shift at all. A point thousands of kilometers away usually means latitude and longitude were swapped, because some standards list latitude first and others longitude first.<span class="citation" data-cites="gdal_osr rfc7946"><sup><a href="#ref-gdal_osr" role="doc-biblioref">22</a>,<a href="#ref-rfc7946" role="doc-biblioref">23</a></sup></span> Swap the two numbers for the Greenwich line, and the point lands in the Indian Ocean, far off the coast of Somalia. These are clues, not rules. The actual shift depends on which versions of the datums are involved, where the data lies, and which transformation was used.</p>
+<p>The size of a mismatch is a rough guide to its cause. A gap of a meter or two suggests NAD 83 data read as WGS 84. Tens of meters suggest data on an old continental datum, such as the 1927 one. Hundreds of meters suggest an old island datum, or a shortcut that applied no datum shift at all. A point thousands of kilometers away usually means latitude and longitude were swapped, because some standards list latitude first and others longitude first.<span class="citation" data-cites="gdal_osr rfc7946"><sup><a href="#ref-gdal_osr" role="doc-biblioref">22</a>,<a href="#ref-rfc7946" role="doc-biblioref">23</a></sup></span> Swap the two numbers for the Greenwich line, and the point lands in the Indian Ocean, far off the coast of Somalia. These are clues, not rules. The actual shift depends on which versions of the datums are involved, where the data lies, and which transformation was used. All of these coordinates are still angles on a curved Earth, and how they become flat x and y on a map is the subject of <a href="../map-projections/">File 004, <em>Map Projections: Flattening a Curved Earth</em></a>.</p>
 </section>
 <section id="the-courtyard-line-and-the-phone-are-both-right" class="level2">
 <h2 class="anchored" data-anchor-id="the-courtyard-line-and-the-phone-are-both-right">The courtyard line and the phone are both right</h2>
@@ -388,7 +398,7 @@ Horizontal bars showing how far coordinates moved on the change to an Earth-cent
   var base = nav ? nav.getAttribute("src").replace(/site_libs\/quarto-nav\/quarto-nav\.js.*$/, "") : "";
   if (!document.querySelector(".sf-hero-mount")) return;
   ["react.production.min.js", "react-dom.production.min.js", "three.min.js", "shapefiles.bundle.js", "hero-mount.js"].reduce(function (p, f) {
-    return p.then(function () { return new Promise(function (done) { var e = document.createElement("script"); e.src = base + "assets/js/" + f + "?v=20261105145731"; e.onload = done; e.onerror = done; document.body.appendChild(e); }); });
+    return p.then(function () { return new Promise(function (done) { var e = document.createElement("script"); e.src = base + "assets/js/" + f + "?v=20261105162045"; e.onload = done; e.onerror = done; document.body.appendChild(e); }); });
   }, Promise.resolve());
 })();
 </script>
@@ -929,7 +939,7 @@ Horizontal bars showing how far coordinates moved on the change to an Earth-cent
       &nbsp;
     </div>
     <div class="nav-footer-right">
-<p><a href="index.xml">RSS</a></p>
+<p><a href="https://jacob-hogue.github.io/the-shape-files/index.xml">RSS</a></p>
 </div>
   </div>
 </footer>

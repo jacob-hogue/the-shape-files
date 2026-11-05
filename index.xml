@@ -17,7 +17,18 @@
 <width>144</width>
 </image>
 <generator>quarto-1.11.9</generator>
-<lastBuildDate>Wed, 11 Nov 2026 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 18 Nov 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Map Projections: Flattening a Curved Earth</title>
+  <dc:creator>Jacob Hogue</dc:creator>
+  <link>https://jacob-hogue.github.io/the-shape-files/articles/map-projections/</link>
+  <description><![CDATA[ Why every flat map gives something up: Mercator’s 1569 chart, Wright’s arithmetic, Lambert’s trade-off, Tissot’s circles, the State Plane and UTM grids, and why Web Mercator is for looking, not measuring. ]]></description>
+  <category>History</category>
+  <category>Cartography</category>
+  <guid>https://jacob-hogue.github.io/the-shape-files/articles/map-projections/</guid>
+  <pubDate>Wed, 18 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://jacob-hogue.github.io/the-shape-files/articles/map-projections/figures/share.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
 <item>
   <title>Latitude, Longitude and the Datum Problem</title>
   <dc:creator>Jacob Hogue</dc:creator>

@@ -14,3 +14,4 @@ A technical history of GIS and geospatial computing by [Jacob Hogue](https://jac
 | 001 | [The Map Room: Answering Geographic Questions by Hand](https://jacob-hogue.github.io/the-shape-files/articles/the-map-room/) |
 | 002 | [How Humans Learned to Measure the Earth](https://jacob-hogue.github.io/the-shape-files/articles/measuring-the-earth/) |
 | 003 | [Latitude, Longitude and the Datum Problem](https://jacob-hogue.github.io/the-shape-files/articles/the-datum-problem/) |
+| 004 | [Map Projections: Flattening a Curved Earth](https://jacob-hogue.github.io/the-shape-files/articles/map-projections/) |
