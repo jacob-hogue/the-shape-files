@@ -101,9 +101,9 @@ div.csl-indent {
 <style>html{ scroll-behavior: smooth; }</style>
 
 
-<link rel="stylesheet" href="../../styles/tokens.css?v=20261118133214">
-<link rel="stylesheet" href="../../styles/components.css?v=20261118133214">
-<link rel="stylesheet" href="../../styles/site.css?v=20261118133214">
+<link rel="stylesheet" href="../../styles/tokens.css?v=20261118133709">
+<link rel="stylesheet" href="../../styles/components.css?v=20261118133709">
+<link rel="stylesheet" href="../../styles/site.css?v=20261118133709">
 <meta property="og:title" content="Map Projections: Flattening a Curved Earth – The Shape-Files">
 <meta property="og:description" content="Why every flat map gives something up: Mercator’s 1569 chart, Wright’s arithmetic, Lambert’s trade-off, Tissot’s circles, the State Plane and UTM grids, and why Web Mercator is for looking, not measuring.">
 <meta property="og:image" content="https://jacob-hogue.github.io/the-shape-files/articles/map-projections/figures/share.png">
@@ -163,8 +163,8 @@ div.csl-indent {
     <h2 id="toc-title">In this article</h2>
    
   <ul class="collapse">
-  <li><a href="#mercator-kept-the-directions" id="toc-mercator-kept-the-directions" class="nav-link active" data-scroll-target="#mercator-kept-the-directions">Mercator kept the directions</a></li>
-  <li><a href="#no-flat-map-can-keep-everything" id="toc-no-flat-map-can-keep-everything" class="nav-link" data-scroll-target="#no-flat-map-can-keep-everything">No flat map can keep everything</a></li>
+  <li><a href="#mercators-chart-got-directions-right" id="toc-mercators-chart-got-directions-right" class="nav-link active" data-scroll-target="#mercators-chart-got-directions-right">Mercator’s chart got directions right</a></li>
+  <li><a href="#every-flat-map-distorts-something" id="toc-every-flat-map-distorts-something" class="nav-link" data-scroll-target="#every-flat-map-distorts-something">Every flat map distorts something</a></li>
   <li><a href="#tissot-gave-distortion-a-shape" id="toc-tissot-gave-distortion-a-shape" class="nav-link" data-scroll-target="#tissot-gave-distortion-a-shape">Tissot gave distortion a shape</a></li>
   <li><a href="#small-zones-keep-the-stretch-small" id="toc-small-zones-keep-the-stretch-small" class="nav-link" data-scroll-target="#small-zones-keep-the-stretch-small">Small zones keep the stretch small</a></li>
   <li><a href="#a-flat-address-names-its-datum-and-its-projection" id="toc-a-flat-address-names-its-datum-and-its-projection" class="nav-link" data-scroll-target="#a-flat-address-names-its-datum-and-its-projection">A flat address names its datum and its projection</a></li>
@@ -185,7 +185,7 @@ div.csl-indent {
 <div class="quarto-title">
 <p class="sf-file-no">File 004</p>
 <h1 class="title">Map Projections: Flattening a Curved Earth</h1>
-<p class="subtitle lead">No flat map can keep everything a globe keeps. Mercator kept compass directions, surveyors kept distances nearly true by keeping their zones small, and web maps kept buildings looking square.</p>
+<p class="subtitle lead">A flat map cannot show the curved, three-dimensional Earth without distortion. Every flat map distorts shape, area, distance, or direction, and usually more than one of them. Mercator’s chart got compass directions right, survey grids hold distance errors down by covering small zones, and web maps make buildings look square.</p>
   <div class="quarto-categories">
     <div class="quarto-category">History</div>
     <div class="quarto-category">Cartography</div>
@@ -226,10 +226,10 @@ Read first
 </nav>
 </div>
 <p>On August 2, 2018, Google Maps told its followers that on its desktop map, “Greenland’s projection is no longer the size of Africa. Just zoom all the way out.”<span class="citation" data-cites="googlemaps2018"><sup><a href="#ref-googlemaps2018" role="doc-biblioref">1</a></sup></span> For years the map had drawn Greenland about as big as Africa, which is really about 14 times larger.<span class="citation" data-cites="un_dyb2023"><sup><a href="#ref-un_dyb2023" role="doc-biblioref">2</a></sup></span> Zoomed all the way out, it was now a globe, and Greenland was back to its real size. Zoom in to a street, though, and web maps are flat again. They draw every street on one flat map, a descendant of a chart made for sailors in 1569.<span class="citation" data-cites="google_tiles microsoft_tiles"><sup><a href="#ref-google_tiles" role="doc-biblioref">3</a>,<a href="#ref-microsoft_tiles" role="doc-biblioref">4</a></sup></span></p>
-<p><a href="../the-datum-problem/">File 003, <em>Latitude, Longitude and the Datum Problem</em></a>, ended with coordinates as angles. Those angles are measured on a curved model of the Earth, and a datum pins that model to the real Earth. But screens and paper are flat, and so are the grids most measurements are worked out on. A map projection is the rule that turns latitude and longitude into flat x and y.<span class="citation" data-cites="snyder_voxland1989"><sup><a href="#ref-snyder_voxland1989" role="doc-biblioref">5</a></sup></span> No rule can do that without changing something. Every flat map keeps some things true and lets others go, and which ones it keeps depends on what the map is for.</p>
+<p><a href="../the-datum-problem/">File 003, <em>Latitude, Longitude and the Datum Problem</em></a>, ended with coordinates as angles. Those angles are measured on a curved model of the Earth, and a datum pins that model to the real Earth. But screens and paper are flat, and so are the grids most measurements are worked out on. A map projection is the rule that turns latitude and longitude into flat x and y.<span class="citation" data-cites="snyder_voxland1989"><sup><a href="#ref-snyder_voxland1989" role="doc-biblioref">5</a></sup></span> No rule can do that without distortion. Every flat map distorts shape, area, distance, or direction, and usually more than one of them. Which ones a map gets right depends on what the map is for.</p>
 <p>Meades Ranch, the Kansas survey station from File 003, shows what that means in practice. On a web map, measured in the map’s own units, a field beside the station has about two-thirds more area than the real field. The station’s datasheet from the National Geodetic Survey handles the mark differently. It gives the survey mark two positions in flat x and y, both in meters. One is on a grid built for Kansas, and the other is on a worldwide grid called the Universal Transverse Mercator (UTM).<span class="citation" data-cites="ngs_kg0640"><sup><a href="#ref-ngs_kg0640" role="doc-biblioref">6</a></sup></span> Call them flat addresses. Beside each one, the datasheet prints how much that grid shrinks or stretches distances at the mark. Why does one mark need two flat addresses, and why can’t either one keep distances true?</p>
-<section id="mercator-kept-the-directions" class="level2">
-<h2 class="anchored" data-anchor-id="mercator-kept-the-directions">Mercator kept the directions</h2>
+<section id="mercators-chart-got-directions-right" class="level2">
+<h2 class="anchored" data-anchor-id="mercators-chart-got-directions-right">Mercator’s chart got directions right</h2>
 <p>Sailors in the sixteenth century needed a flat chart that kept one thing true. A navigator steered one compass bearing at a time and plotted it with a ruler, so a straight line on the chart had to be a line of constant bearing. The usual charts spaced the parallels evenly and drew every degree of longitude as wide as it is at the equator. At 39° north, the latitude of Meades Ranch, such a chart drew the land about 1.29 times too wide but left its north–south size alone. That threw off the angles between courses, and a line of constant bearing came out curved.<span class="citation" data-cites="mercator1569 snyder1987"><sup><a href="#ref-mercator1569" role="doc-biblioref">7</a>,<a href="#ref-snyder1987" role="doc-biblioref">8</a></sup></span> Gerard Mercator, a mapmaker in Duisburg, fixed this with his world map of 1569 (Fig. 1). One of its legends explains that he “gradually increased the degrees of latitude toward each pole in proportion to the lengthening of the parallels.”<span class="citation" data-cites="mercator1569"><sup><a href="#ref-mercator1569" role="doc-biblioref">7</a></sup></span></p>
 <figure class="sf-fig sf-fig-photo figure" aria-labelledby="fig-1-cap">
 <a class="sf-fig-frame sf-zoom" href="figures/basel-1569-mercator-world-map.jpg" aria-label="Enlarge figure 1"><img src="figures/basel-1569-mercator-world-map.jpg" width="1800" height="1145" alt="An engraved world map inside a decorated border, with the Americas on the left and Europe, Africa, and Asia on the right, crossed by compass roses and their radiating lines, with framed blocks of Latin text and a round inset map of the Arctic at lower left." class="figure-img"></a>
@@ -242,9 +242,9 @@ Read first
 <figcaption class="sf-fig-cap" id="fig-2-cap"><span class="sf-fig-label">Fig. 2</span>Wright’s grid for a Mercator chart, from his book of 1599. The equator runs along the bottom, the parallels spread apart as they climb toward the pole, and the slanting lines of constant compass bearing stay straight.<span class="sf-fig-credit">Map: Edward Wright, <em>Certaine Errors in Nauigation</em>, London, 1599 · <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · <a href="https://americana.jcblibrary.org/permissions/">Courtesy of the John Carter Brown Library</a> · cropped to the plate</span></figcaption>
 </figure>
 </section>
-<section id="no-flat-map-can-keep-everything" class="level2">
-<h2 class="anchored" data-anchor-id="no-flat-map-can-keep-everything">No flat map can keep everything</h2>
-<p>Mercator kept directions and gave up size. In 1772 the mathematician Johann Heinrich Lambert explained why every map has to give up something. He listed what a perfect map would do: keep the shapes of countries and their relative sizes, keep distances in proportion, draw the shortest routes as straight lines, and make latitude and longitude easy to read. All of it would be easy, he wrote, “if the Earth’s surface were a plane. But it is a spherical surface, and so not all conditions can be satisfied at once.”<span class="citation" data-cites="lambert1772"><sup><a href="#ref-lambert1772" role="doc-biblioref">10</a></sup></span></p>
+<section id="every-flat-map-distorts-something" class="level2">
+<h2 class="anchored" data-anchor-id="every-flat-map-distorts-something">Every flat map distorts something</h2>
+<p>Mercator’s chart got directions right and sizes wrong. In 1772 the mathematician Johann Heinrich Lambert explained why every map has to give up something. He listed what a perfect map would do: keep the shapes of countries and their relative sizes, keep distances in proportion, draw the shortest routes as straight lines, and make latitude and longitude easy to read. All of it would be easy, he wrote, “if the Earth’s surface were a plane. But it is a spherical surface, and so not all conditions can be satisfied at once.”<span class="citation" data-cites="lambert1772"><sup><a href="#ref-lambert1772" role="doc-biblioref">10</a></sup></span></p>
 <p>A triangle on the globe shows the problem. Two meridians that leave the North Pole 90° apart both meet the equator at right angles, so the three lines enclose a triangle with three right angles. No flat triangle can have that. In 1827 the German mathematician Carl Friedrich Gauss proved the general rule. A surface can be bent without stretching or tearing, but bending never changes its curvature. A flat sheet has none, and a globe has plenty, which means nobody can lay a globe flat without stretching it.<span class="citation" data-cites="gauss1827"><sup><a href="#ref-gauss1827" role="doc-biblioref">11</a></sup></span></p>
 </section>
 <section id="tissot-gave-distortion-a-shape" class="level2">
@@ -380,7 +380,7 @@ A line chart with two curves over a shaded horizontal band. One curve dips well 
   var base = nav ? nav.getAttribute("src").replace(/site_libs\/quarto-nav\/quarto-nav\.js.*$/, "") : "";
   if (!document.querySelector(".sf-hero-mount")) return;
   ["react.production.min.js", "react-dom.production.min.js", "three.min.js", "shapefiles.bundle.js", "hero-mount.js"].reduce(function (p, f) {
-    return p.then(function () { return new Promise(function (done) { var e = document.createElement("script"); e.src = base + "assets/js/" + f + "?v=20261118133214"; e.onload = done; e.onerror = done; document.body.appendChild(e); }); });
+    return p.then(function () { return new Promise(function (done) { var e = document.createElement("script"); e.src = base + "assets/js/" + f + "?v=20261118133709"; e.onload = done; e.onerror = done; document.body.appendChild(e); }); });
   }, Promise.resolve());
 })();
 </script>
